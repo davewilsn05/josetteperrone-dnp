@@ -1,0 +1,10 @@
+.DS_Store
+**/.DS_Store
+.vercel
+node_modules
+source-docs/
+assets/generated/
+assets/references/
+assets/josette-hero.jpg
+assets/josette-speaker-interim.jpg
+assets/clinical-stage.png

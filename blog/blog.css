@@ -1,0 +1,25 @@
+.blog-hero { padding-bottom: 36px; }
+.blog-hero h1 { max-width: 980px; }
+.article-note { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); color: var(--muted); padding: 14px 16px; font-size: 0.92rem; font-weight: 700; }
+.blog-nav { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 0; padding-bottom: 28px; }
+.blog-nav a { border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--ink); font-weight: 800; padding: 10px 13px; }
+.blog-nav span { color: var(--teal-dark); }
+.blog-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding-top: 24px; }
+.blog-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); min-height: 220px; padding: 22px; }
+.blog-card span { color: var(--teal-dark); display: block; font-size: 0.76rem; font-weight: 900; letter-spacing: 0.08em; margin-bottom: 20px; text-transform: uppercase; }
+.blog-card h3 { font-size: 1.12rem; }
+.blog-card p { color: var(--muted); margin-bottom: 0; }
+.blog-index { display: grid; gap: 18px; }
+.blog-category { border-top: 1px solid var(--line); padding-top: 28px; }
+.blog-category h2 { font-size: clamp(1.7rem, 3vw, 2.8rem); }
+.blog-list { column-count: 2; column-gap: 34px; }
+.blog-list a { break-inside: avoid; display: block; padding: 8px 0; color: var(--teal-dark); font-weight: 800; }
+.article-shell { max-width: 900px; margin: 0 auto; padding: 54px 20px 90px; }
+.article-page { border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); padding: clamp(24px, 5vw, 58px); }
+.article-page h1 { font-size: clamp(2.4rem, 6vw, 4.9rem); }
+.article-page h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-top: 34px; }
+.article-page p, .article-page li { color: var(--muted); font-size: 1.08rem; }
+.article-dek { color: var(--ink) !important; font-size: 1.25rem !important; font-weight: 700; }
+.back-link { display: inline-flex; margin-bottom: 28px; color: var(--teal-dark); font-weight: 900; }
+@media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .blog-grid { grid-template-columns: 1fr; } .blog-list { column-count: 1; } .site-nav { display: none; } }

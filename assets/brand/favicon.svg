@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Josette Perrone heartbeat heart mark">
+  <defs>
+    <linearGradient id="bg" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d7c78"/>
+      <stop offset="0.52" stop-color="#10242a"/>
+      <stop offset="1" stop-color="#265c7d"/>
+    </linearGradient>
+    <linearGradient id="heart" x1="19" y1="18" x2="47" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff8a70"/>
+      <stop offset="1" stop-color="#c86b5a"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#bg)"/>
+  <path d="M32 50S14.5 39.7 14.5 27.2c0-5.4 4.1-9.7 9.3-9.7 3.2 0 6.1 1.7 8.2 4.4 2.1-2.7 5-4.4 8.2-4.4 5.2 0 9.3 4.3 9.3 9.7C49.5 39.7 32 50 32 50Z" fill="url(#heart)"/>
+  <path d="M10 34h9.8l3.2-6.4 5.8 13.8 5.5-22.8 4.4 15.4H54" fill="none" stroke="#fbfcfb" stroke-width="4.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
