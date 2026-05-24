@@ -33,6 +33,10 @@ body {
   line-height: 1.5;
 }
 
+main {
+  overflow: hidden;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -141,9 +145,36 @@ a {
 }
 
 .section {
+  position: relative;
   max-width: var(--max);
   margin: 0 auto;
   padding: 86px 24px;
+}
+
+.chevron-section::before,
+.chevron-section::after {
+  position: absolute;
+  left: max(24px, calc((100vw - var(--max)) / 2 + 24px));
+  z-index: -1;
+  width: min(34vw, 360px);
+  height: 76px;
+  border: 1px solid rgba(13, 124, 120, 0.16);
+  content: "";
+  opacity: 0.82;
+  pointer-events: none;
+  transform: skewX(-24deg);
+}
+
+.chevron-section::before {
+  top: 30px;
+  background: rgba(185, 214, 201, 0.24);
+}
+
+.chevron-section::after {
+  right: max(24px, calc((100vw - var(--max)) / 2 + 24px));
+  left: auto;
+  bottom: 24px;
+  background: rgba(200, 107, 90, 0.12);
 }
 
 .hero {
@@ -310,6 +341,15 @@ h3 {
   object-position: center;
 }
 
+.parallax-frame {
+  isolation: isolate;
+}
+
+.parallax-frame img {
+  will-change: transform;
+  transition: transform 120ms linear;
+}
+
 .portrait-card {
   position: absolute;
   right: 22px;
@@ -380,6 +420,56 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.image-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 18px;
+  padding-top: 22px;
+}
+
+.image-tile {
+  position: relative;
+  min-height: 380px;
+  margin: 0;
+  border-radius: var(--radius);
+  background: var(--ink);
+  box-shadow: var(--shadow);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 42px), calc(100% - 42px) 100%, 0 100%);
+  overflow: hidden;
+}
+
+.image-tile-large {
+  min-height: 520px;
+}
+
+.image-tile img {
+  width: 100%;
+  height: 112%;
+  object-fit: cover;
+}
+
+.image-tile::after,
+.booking-image::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, rgba(16, 36, 42, 0), rgba(16, 36, 42, 0.72));
+  content: "";
+  pointer-events: none;
+}
+
+.image-tile figcaption {
+  position: absolute;
+  right: 22px;
+  bottom: 20px;
+  left: 22px;
+  z-index: 1;
+  color: var(--white);
+  font-weight: 850;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
 .section-copy {
   display: grid;
   gap: 16px;
@@ -430,7 +520,7 @@ h3 {
 
 .about-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 1fr) 420px;
   gap: 18px;
 }
 
@@ -518,6 +608,15 @@ h3 {
   padding: clamp(28px, 5vw, 54px);
 }
 
+.about-media {
+  display: grid;
+  gap: 18px;
+}
+
+.about-media .image-tile {
+  min-height: 360px;
+}
+
 .stats-panel {
   display: grid;
   align-content: stretch;
@@ -561,12 +660,85 @@ h3 {
 }
 
 .blog-preview-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.72fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: center;
   margin-top: 18px;
   padding-top: 64px;
   padding-bottom: 64px;
   background:
     linear-gradient(135deg, rgba(13, 124, 120, 0.1), rgba(200, 107, 90, 0.07)),
     var(--white);
+}
+
+.blog-preview-section .section-heading {
+  margin-bottom: 0;
+}
+
+.blog-preview-image {
+  min-height: 430px;
+}
+
+.outcomes-section {
+  border-top: 1px solid var(--line);
+}
+
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.outcomes-grid article {
+  min-height: 285px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(238, 246, 245, 0.72)),
+    var(--white);
+  padding: 24px;
+  box-shadow: 0 18px 44px rgba(16, 36, 42, 0.06);
+}
+
+.outcomes-grid span {
+  display: inline-flex;
+  margin-bottom: 24px;
+  color: var(--coral);
+  font-weight: 950;
+}
+
+.outcomes-grid p {
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.answer-section {
+  border-top: 1px solid var(--line);
+}
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.answer-grid article {
+  min-height: 250px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  padding: 24px;
+  box-shadow: 0 18px 44px rgba(16, 36, 42, 0.06);
+}
+
+.answer-grid h3 {
+  color: var(--ink);
+}
+
+.answer-grid p {
+  color: var(--muted);
+  font-weight: 650;
 }
 
 .check-list {
@@ -600,6 +772,22 @@ h3 {
   font-weight: 900;
 }
 
+.booking-image {
+  position: relative;
+  min-height: 260px;
+  margin: 32px 0 0;
+  border-radius: var(--radius);
+  box-shadow: 0 18px 50px rgba(16, 36, 42, 0.12);
+  clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%);
+  overflow: hidden;
+}
+
+.booking-image img {
+  width: 100%;
+  height: 112%;
+  object-fit: cover;
+}
+
 .booking-form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -624,6 +812,7 @@ h3 {
 }
 
 input,
+select,
 textarea {
   width: 100%;
   border: 1px solid var(--line);
@@ -635,6 +824,7 @@ textarea {
 }
 
 input:focus,
+select:focus,
 textarea:focus {
   border-color: var(--teal);
   outline: 3px solid rgba(13, 124, 120, 0.16);
@@ -676,6 +866,8 @@ textarea:focus {
   .hero,
   .split,
   .about-section,
+  .image-band,
+  .blog-preview-section,
   .booking-section {
     grid-template-columns: 1fr;
   }
@@ -689,6 +881,12 @@ textarea:focus {
     aspect-ratio: 16 / 9;
   }
 
+  .image-tile,
+  .image-tile-large,
+  .blog-preview-image {
+    min-height: 420px;
+  }
+
   .proof-band {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -698,7 +896,9 @@ textarea:focus {
   }
 
   .timeline-grid,
-  .education-grid {
+  .education-grid,
+  .answer-grid,
+  .outcomes-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -749,6 +949,12 @@ textarea:focus {
     padding: 60px 18px;
   }
 
+  .chevron-section::before,
+  .chevron-section::after {
+    width: 54vw;
+    height: 52px;
+  }
+
   .hero {
     padding-top: 38px;
   }
@@ -767,6 +973,8 @@ textarea:focus {
   .timeline-grid,
   .education-grid,
   .stats-panel,
+  .answer-grid,
+  .outcomes-grid,
   .booking-form {
     grid-template-columns: 1fr;
   }
@@ -790,6 +998,13 @@ textarea:focus {
     padding: 14px;
   }
 
+  .image-tile,
+  .image-tile-large,
+  .blog-preview-image,
+  .about-media .image-tile {
+    min-height: 330px;
+  }
+
   .site-footer {
     display: grid;
     padding: 28px 18px 42px;
@@ -805,9 +1020,24 @@ textarea:focus {
     aspect-ratio: 4 / 3;
   }
 
+  .image-tile,
+  .image-tile-large,
+  .blog-preview-image,
+  .about-media .image-tile,
+  .booking-image {
+    min-height: 280px;
+  }
+
   .portrait-card {
     right: 14px;
     bottom: 14px;
     width: calc(100% - 28px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-frame img {
+    transform: none !important;
+    transition: none;
   }
 }

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Josette Perrone healthcare speaker social preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8fbfa"/>
+      <stop offset="0.62" stop-color="#eef6f5"/>
+      <stop offset="1" stop-color="#dbe8e6"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="86" y1="90" x2="410" y2="424" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0d7c78"/>
+      <stop offset="1" stop-color="#10242a"/>
+    </linearGradient>
+    <linearGradient id="heart" x1="164" y1="178" x2="340" y2="344" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff927b"/>
+      <stop offset="1" stop-color="#c86b5a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#10242a" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <path d="M0 498h142l38-86 72 171 69-288 63 203h816" fill="none" stroke="#b9d6c9" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
+  <path d="M0 498h142l38-86 72 171 69-288 63 203h816" fill="none" stroke="#0d7c78" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <g filter="url(#shadow)">
+    <rect x="78" y="86" width="318" height="318" rx="68" fill="url(#panel)"/>
+    <path d="M237 337s-92-55-92-121c0-29 22-51 49-51 17 0 33 9 43 24 11-15 27-24 44-24 27 0 49 22 49 51 0 66-93 121-93 121Z" fill="url(#heart)"/>
+    <path d="M121 259h70l22-45 38 94 39-151 31 102h75" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g>
+    <text x="454" y="178" fill="#075f62" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" letter-spacing="5">HEALTHCARE SPEAKER</text>
+    <text x="454" y="286" fill="#10242a" font-family="Georgia, 'Times New Roman', serif" font-size="76" font-weight="700">Josette Perrone</text>
+    <text x="454" y="354" fill="#075f62" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800">DNP, MSN-Ed, FNP-C, RN</text>
+    <text x="454" y="424" fill="#33484e" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="600">Helping nurses lead without losing themselves.</text>
+    <rect x="454" y="482" width="334" height="60" rx="12" fill="#0d7c78"/>
+    <text x="482" y="522" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">Book Josette to Speak</text>
+  </g>
+</svg>

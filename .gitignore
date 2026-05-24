@@ -4,6 +4,10 @@
 node_modules
 source-docs/
 assets/generated/
+!assets/generated/
+assets/generated/*
+!assets/generated/josette-site-20260524/
+!assets/generated/josette-site-20260524/**
 assets/references/
 assets/josette-hero.jpg
 assets/josette-speaker-interim.jpg
