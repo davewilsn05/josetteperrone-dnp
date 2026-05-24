@@ -443,6 +443,7 @@ h3 {
 }
 
 .image-tile img {
+  display: block;
   width: 100%;
   height: 112%;
   object-fit: cover;
@@ -677,7 +678,13 @@ h3 {
 }
 
 .blog-preview-image {
-  min-height: 430px;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+
+.blog-preview-image img {
+  height: 100%;
+  object-position: 50% 36%;
 }
 
 .outcomes-section {
@@ -882,9 +889,12 @@ textarea:focus {
   }
 
   .image-tile,
-  .image-tile-large,
-  .blog-preview-image {
+  .image-tile-large {
     min-height: 420px;
+  }
+
+  .blog-preview-image {
+    aspect-ratio: 16 / 10;
   }
 
   .proof-band {
@@ -1000,9 +1010,12 @@ textarea:focus {
 
   .image-tile,
   .image-tile-large,
-  .blog-preview-image,
   .about-media .image-tile {
     min-height: 330px;
+  }
+
+  .blog-preview-image {
+    aspect-ratio: 4 / 3;
   }
 
   .site-footer {
@@ -1022,10 +1035,13 @@ textarea:focus {
 
   .image-tile,
   .image-tile-large,
-  .blog-preview-image,
   .about-media .image-tile,
   .booking-image {
     min-height: 280px;
+  }
+
+  .blog-preview-image {
+    aspect-ratio: 4 / 3;
   }
 
   .portrait-card {
