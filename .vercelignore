@@ -4,7 +4,6 @@
 .vercel
 node_modules
 source-docs/
-assets/generated/
 assets/references/
 assets/josette-hero.jpg
 assets/josette-speaker-interim.jpg
