@@ -1,6 +1,8 @@
 .DS_Store
 **/.DS_Store
 .vercel
+.env*
+!.env.example
 node_modules
 source-docs/
 assets/references/

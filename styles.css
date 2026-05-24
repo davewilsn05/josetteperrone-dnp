@@ -20,11 +20,15 @@
 }
 
 html {
+  max-width: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
+  max-width: 100%;
   margin: 0;
+  overflow-x: hidden;
   background:
     linear-gradient(180deg, rgba(238, 246, 245, 0.85), rgba(251, 252, 251, 0.96) 38rem),
     var(--paper);
@@ -209,6 +213,7 @@ h2,
 h3,
 p {
   margin-top: 0;
+  overflow-wrap: break-word;
 }
 
 h1,
@@ -222,6 +227,7 @@ h1 {
   margin-bottom: 18px;
   font-size: clamp(2.7rem, 5.7vw, 4.9rem);
   line-height: 0.98;
+  text-wrap: balance;
 }
 
 h2 {
@@ -869,6 +875,45 @@ textarea:focus {
   font-weight: 900;
 }
 
+.cookie-banner {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  width: min(680px, calc(100vw - 36px));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.cookie-banner strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.cookie-banner p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.cookie-actions .button {
+  min-height: 42px;
+  padding: 10px 14px;
+}
+
 @media (max-width: 960px) {
   .hero,
   .split,
@@ -927,7 +972,17 @@ textarea:focus {
     padding: 14px 16px;
   }
 
+  .brand {
+    max-width: calc(100vw - 104px);
+  }
+
+  .brand strong {
+    font-size: 0.92rem;
+    line-height: 1.1;
+  }
+
   .nav-toggle {
+    flex: 0 0 auto;
     display: block;
   }
 
@@ -956,21 +1011,57 @@ textarea:focus {
   }
 
   .section {
-    padding: 60px 18px;
+    width: 100%;
+    padding: 50px 16px;
   }
 
   .chevron-section::before,
   .chevron-section::after {
+    max-width: calc(100vw - 32px);
     width: 54vw;
     height: 52px;
   }
 
   .hero {
-    padding-top: 38px;
+    padding-top: 34px;
+    gap: 24px;
+  }
+
+  .hero-copy,
+  .section-heading {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: calc(100vw - 32px);
+    margin-inline: auto;
   }
 
   h1 {
-    font-size: clamp(2.8rem, 15vw, 4.4rem);
+    font-size: clamp(2.35rem, 11vw, 3.35rem);
+    line-height: 0.98;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 9vw, 2.85rem);
+  }
+
+  .eyebrow {
+    max-width: 100%;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    text-align: center;
+  }
+
+  .hero-lede,
+  .section-copy p,
+  .about-panel p,
+  .booking-copy p {
+    font-size: 1rem;
   }
 
   .hero-actions,
@@ -1022,6 +1113,22 @@ textarea:focus {
     display: grid;
     padding: 28px 18px 42px;
   }
+
+  .cookie-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-actions {
+    justify-content: stretch;
+  }
+
+  .cookie-actions .button {
+    flex: 1;
+  }
+
+  .parallax-frame img {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 430px) {
@@ -1030,7 +1137,19 @@ textarea:focus {
   }
 
   .hero-visual {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
+  }
+
+  .hero-visual img {
+    object-position: 48% 20%;
+  }
+
+  h1 {
+    font-size: clamp(2.15rem, 10.4vw, 2.8rem);
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 8.4vw, 2.4rem);
   }
 
   .image-tile,
