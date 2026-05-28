@@ -514,6 +514,8 @@ function renderPage(page) {
         <a href="/healthcare-speaker">Healthcare Speaker</a>
         <a href="/nursing-speaker">Nursing Speaker</a>
         <a href="/keynotes-workshops">Topics</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#about">About</a>
         <a href="/blog/">Blog</a>
         <a href="/#booking">Booking</a>
       </nav>
