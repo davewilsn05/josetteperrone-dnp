@@ -70,6 +70,8 @@ const faviconLinks = (prefix = "") => `    <link rel="icon" href="${prefix}/asse
     <link rel="icon" href="${prefix}/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="${prefix}/assets/brand/apple-touch-icon.png" />`;
 
+const fullBlogNav = `<nav class="site-nav"><a href="/healthcare-speaker">Healthcare Speaker</a><a href="/nursing-speaker">Nursing Speaker</a><a href="/keynotes-workshops">Topics</a><a href="/#experience">Experience</a><a href="/#about">About</a><a href="/blog/">Blog</a><a href="/#booking">Booking</a></nav>`;
+
 const ensureFavicons = (html, prefix = "") => {
   if (html.includes('rel="icon"') || html.includes("rel='icon'")) return html;
   return html.replace(
@@ -105,6 +107,7 @@ for (const article of articles) {
   const file = path.join(blogDir, `${article.slug}.html`);
   let html = fs.readFileSync(file, "utf8");
   html = ensureFavicons(html, "..");
+  html = html.replace(/<nav class="site-nav">[\s\S]*?<\/nav>/, fullBlogNav);
   const minutes = readingTime(html);
   const category = categories.find((candidate) => candidate.name === article.category);
   const tags = category.tags;
@@ -149,6 +152,7 @@ const categoryNav = categories
 
 let blogIndex = fs.readFileSync(path.join(blogDir, "index.html"), "utf8");
 blogIndex = ensureFavicons(blogIndex, "..");
+blogIndex = blogIndex.replace(/<nav class="site-nav">[\s\S]*?<\/nav>/, fullBlogNav);
 blogIndex = blogIndex.replace(/<a href="#[^"]+"><span>[\s\S]*?<\/strong><\/a>(\s*<a href="#[^"]+"><span>[\s\S]*?<\/strong><\/a>)*/m, categoryNav);
 blogIndex = blogIndex.replace(/<link rel="stylesheet" href="\.\.\/styles\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="../styles.css?v=20260524-posthog-seo" />');
 blogIndex = blogIndex.replace(/<link rel="stylesheet" href="blog\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="blog.css?v=20260524-topic-silos" />');
@@ -229,7 +233,7 @@ ${faviconLinks("..")}
   <body>
     <header class="site-header">
       <a class="brand" href="../index.html#top" aria-label="Josette Perrone home"><span class="brand-mark">JP</span><span><strong>Josette Perrone</strong><small>DNP, FNP-C, RN</small></span></a>
-      <nav class="site-nav"><a href="../index.html#speaking">Speaking</a><a href="../index.html#experience">Experience</a><a href="index.html">Blog</a><a href="../index.html#booking">Booking</a></nav>
+      ${fullBlogNav}
     </header>
     <main>
       <section class="blog-hero section category-hero">
