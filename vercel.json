@@ -1,4 +1,796 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/a-practical-resilience-framework-for-nurse-teams",
+      "destination": "/blog/a-practical-resilience-framework-for-nurse-teams",
+      "permanent": true
+    },
+    {
+      "source": "/advanced-practice-and-interdisciplinary-respect",
+      "destination": "/blog/advanced-practice-and-interdisciplinary-respect",
+      "permanent": true
+    },
+    {
+      "source": "/advanced-practice-leadership-without-losing-nursing-roots",
+      "destination": "/blog/advanced-practice-leadership-without-losing-nursing-roots",
+      "permanent": true
+    },
+    {
+      "source": "/advanced-practice-nursing",
+      "destination": "/blog/advanced-practice-nursing",
+      "permanent": true
+    },
+    {
+      "source": "/advanced-practice-nursing-practical-reflection-15",
+      "destination": "/blog/advanced-practice-nursing-practical-reflection-15",
+      "permanent": true
+    },
+    {
+      "source": "/advanced-practice-nursing-practical-reflection-23",
+      "destination": "/blog/advanced-practice-nursing-practical-reflection-23",
+      "permanent": true
+    },
+    {
+      "source": "/advanced-practice-nursing-practical-reflection-7",
+      "destination": "/blog/advanced-practice-nursing-practical-reflection-7",
+      "permanent": true
+    },
+    {
+      "source": "/advocacy-for-vulnerable-patients",
+      "destination": "/blog/advocacy-for-vulnerable-patients",
+      "permanent": true
+    },
+    {
+      "source": "/advocacy-in-emergency-and-trauma-care",
+      "destination": "/blog/advocacy-in-emergency-and-trauma-care",
+      "permanent": true
+    },
+    {
+      "source": "/advocacy-requires-team-trust",
+      "destination": "/blog/advocacy-requires-team-trust",
+      "permanent": true
+    },
+    {
+      "source": "/advocacy-when-the-system-is-moving-fast",
+      "destination": "/blog/advocacy-when-the-system-is-moving-fast",
+      "permanent": true
+    },
+    {
+      "source": "/after-the-code-what-teams-need-next",
+      "destination": "/blog/after-the-code-what-teams-need-next",
+      "permanent": true
+    },
+    {
+      "source": "/becoming-the-mentor-you-once-needed",
+      "destination": "/blog/becoming-the-mentor-you-once-needed",
+      "permanent": true
+    },
+    {
+      "source": "/better-questions-create-better-clinical-thinking",
+      "destination": "/blog/better-questions-create-better-clinical-thinking",
+      "permanent": true
+    },
+    {
+      "source": "/building-confidence-one-competency-at-a-time",
+      "destination": "/blog/building-confidence-one-competency-at-a-time",
+      "permanent": true
+    },
+    {
+      "source": "/building-safer-hand-offs-in-busy-clinical-environments",
+      "destination": "/blog/building-safer-hand-offs-in-busy-clinical-environments",
+      "permanent": true
+    },
+    {
+      "source": "/burnout-and-resilience",
+      "destination": "/blog/burnout-and-resilience",
+      "permanent": true
+    },
+    {
+      "source": "/burnout-and-resilience-practical-reflection-10",
+      "destination": "/blog/burnout-and-resilience-practical-reflection-10",
+      "permanent": true
+    },
+    {
+      "source": "/burnout-and-resilience-practical-reflection-18",
+      "destination": "/blog/burnout-and-resilience-practical-reflection-18",
+      "permanent": true
+    },
+    {
+      "source": "/burnout-and-resilience-practical-reflection-2",
+      "destination": "/blog/burnout-and-resilience-practical-reflection-2",
+      "permanent": true
+    },
+    {
+      "source": "/burnout-and-resilience-practical-reflection-26",
+      "destination": "/blog/burnout-and-resilience-practical-reflection-26",
+      "permanent": true
+    },
+    {
+      "source": "/burnout-conversations-need-more-precision",
+      "destination": "/blog/burnout-conversations-need-more-precision",
+      "permanent": true
+    },
+    {
+      "source": "/burnout-is-not-a-personal-failure",
+      "destination": "/blog/burnout-is-not-a-personal-failure",
+      "permanent": true
+    },
+    {
+      "source": "/burnout-prevention-starts-with-better-listening",
+      "destination": "/blog/burnout-prevention-starts-with-better-listening",
+      "permanent": true
+    },
+    {
+      "source": "/career-growth-without-burning-out",
+      "destination": "/blog/career-growth-without-burning-out",
+      "permanent": true
+    },
+    {
+      "source": "/career-mentorship-for-nurses-considering-graduate-school",
+      "destination": "/blog/career-mentorship-for-nurses-considering-graduate-school",
+      "permanent": true
+    },
+    {
+      "source": "/caring-for-the-patient-and-the-room-at-the-same-time",
+      "destination": "/blog/caring-for-the-patient-and-the-room-at-the-same-time",
+      "permanent": true
+    },
+    {
+      "source": "/clear-communication-is-a-clinical-skill",
+      "destination": "/blog/clear-communication-is-a-clinical-skill",
+      "permanent": true
+    },
+    {
+      "source": "/clinical-communication",
+      "destination": "/blog/clinical-communication",
+      "permanent": true
+    },
+    {
+      "source": "/clinical-communication-practical-reflection-13",
+      "destination": "/blog/clinical-communication-practical-reflection-13",
+      "permanent": true
+    },
+    {
+      "source": "/clinical-communication-practical-reflection-21",
+      "destination": "/blog/clinical-communication-practical-reflection-21",
+      "permanent": true
+    },
+    {
+      "source": "/clinical-communication-practical-reflection-29",
+      "destination": "/blog/clinical-communication-practical-reflection-29",
+      "permanent": true
+    },
+    {
+      "source": "/clinical-communication-practical-reflection-5",
+      "destination": "/blog/clinical-communication-practical-reflection-5",
+      "permanent": true
+    },
+    {
+      "source": "/clinical-confidence-without-overconfidence",
+      "destination": "/blog/clinical-confidence-without-overconfidence",
+      "permanent": true
+    },
+    {
+      "source": "/communication-fatigue-is-real",
+      "destination": "/blog/communication-fatigue-is-real",
+      "permanent": true
+    },
+    {
+      "source": "/communication-lessons-from-broadcast-production",
+      "destination": "/blog/communication-lessons-from-broadcast-production",
+      "permanent": true
+    },
+    {
+      "source": "/compassion-fatigue-in-high-acuity-care",
+      "destination": "/blog/compassion-fatigue-in-high-acuity-care",
+      "permanent": true
+    },
+    {
+      "source": "/doctoral-education-and-systems-change",
+      "destination": "/blog/doctoral-education-and-systems-change",
+      "permanent": true
+    },
+    {
+      "source": "/documentation-as-a-patient-advocacy-tool",
+      "destination": "/blog/documentation-as-a-patient-advocacy-tool",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-and-trauma-nursing",
+      "destination": "/blog/emergency-and-trauma-nursing",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-and-trauma-nursing-practical-reflection-11",
+      "destination": "/blog/emergency-and-trauma-nursing-practical-reflection-11",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-and-trauma-nursing-practical-reflection-19",
+      "destination": "/blog/emergency-and-trauma-nursing-practical-reflection-19",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-and-trauma-nursing-practical-reflection-27",
+      "destination": "/blog/emergency-and-trauma-nursing-practical-reflection-27",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-and-trauma-nursing-practical-reflection-3",
+      "destination": "/blog/emergency-and-trauma-nursing-practical-reflection-3",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-nursing-lessons-for-every-healthcare-team",
+      "destination": "/blog/emergency-nursing-lessons-for-every-healthcare-team",
+      "permanent": true
+    },
+    {
+      "source": "/every-nursing-career-needs-a-next-step",
+      "destination": "/blog/every-nursing-career-needs-a-next-step",
+      "permanent": true
+    },
+    {
+      "source": "/evidence-based-practice-for-real-world-units",
+      "destination": "/blog/evidence-based-practice-for-real-world-units",
+      "permanent": true
+    },
+    {
+      "source": "/family-communication-as-advocacy",
+      "destination": "/blog/family-communication-as-advocacy",
+      "permanent": true
+    },
+    {
+      "source": "/feedback-that-helps-nursing-students-grow",
+      "destination": "/blog/feedback-that-helps-nursing-students-grow",
+      "permanent": true
+    },
+    {
+      "source": "/from-individual-care-to-system-awareness",
+      "destination": "/blog/from-individual-care-to-system-awareness",
+      "permanent": true
+    },
+    {
+      "source": "/from-student-to-clinician-to-leader",
+      "destination": "/blog/from-student-to-clinician-to-leader",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-worker-safety",
+      "destination": "/blog/healthcare-worker-safety",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-worker-safety-is-a-retention-strategy",
+      "destination": "/blog/healthcare-worker-safety-is-a-retention-strategy",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-worker-safety-practical-reflection-1",
+      "destination": "/blog/healthcare-worker-safety-practical-reflection-1",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-worker-safety-practical-reflection-17",
+      "destination": "/blog/healthcare-worker-safety-practical-reflection-17",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-worker-safety-practical-reflection-25",
+      "destination": "/blog/healthcare-worker-safety-practical-reflection-25",
+      "permanent": true
+    },
+    {
+      "source": "/healthcare-worker-safety-practical-reflection-9",
+      "destination": "/blog/healthcare-worker-safety-practical-reflection-9",
+      "permanent": true
+    },
+    {
+      "source": "/helping-novice-nurses-find-their-voice",
+      "destination": "/blog/helping-novice-nurses-find-their-voice",
+      "permanent": true
+    },
+    {
+      "source": "/helping-patients-feel-seen-in-busy-settings",
+      "destination": "/blog/helping-patients-feel-seen-in-busy-settings",
+      "permanent": true
+    },
+    {
+      "source": "/helping-students-connect-theory-to-practice",
+      "destination": "/blog/helping-students-connect-theory-to-practice",
+      "permanent": true
+    },
+    {
+      "source": "/how-ed-nurses-build-clinical-pattern-recognition",
+      "destination": "/blog/how-ed-nurses-build-clinical-pattern-recognition",
+      "permanent": true
+    },
+    {
+      "source": "/how-education-opens-clinical-doors",
+      "destination": "/blog/how-education-opens-clinical-doors",
+      "permanent": true
+    },
+    {
+      "source": "/how-leaders-communicate-during-uncertainty",
+      "destination": "/blog/how-leaders-communicate-during-uncertainty",
+      "permanent": true
+    },
+    {
+      "source": "/how-mentorship-protects-against-burnout",
+      "destination": "/blog/how-mentorship-protects-against-burnout",
+      "permanent": true
+    },
+    {
+      "source": "/how-nurses-protect-patient-dignity",
+      "destination": "/blog/how-nurses-protect-patient-dignity",
+      "permanent": true
+    },
+    {
+      "source": "/how-nurses-translate-complexity-for-families",
+      "destination": "/blog/how-nurses-translate-complexity-for-families",
+      "permanent": true
+    },
+    {
+      "source": "/how-rn-experience-shapes-np-judgment",
+      "destination": "/blog/how-rn-experience-shapes-np-judgment",
+      "permanent": true
+    },
+    {
+      "source": "/how-role-play-builds-communication-confidence",
+      "destination": "/blog/how-role-play-builds-communication-confidence",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-communicate-limits-with-compassion",
+      "destination": "/blog/how-to-communicate-limits-with-compassion",
+      "permanent": true
+    },
+    {
+      "source": "/how-to-make-safety-huddles-worth-the-time",
+      "destination": "/blog/how-to-make-safety-huddles-worth-the-time",
+      "permanent": true
+    },
+    {
+      "source": "/inclusive-classrooms-build-safer-clinicians",
+      "destination": "/blog/inclusive-classrooms-build-safer-clinicians",
+      "permanent": true
+    },
+    {
+      "source": "/leading-with-both-evidence-and-empathy",
+      "destination": "/blog/leading-with-both-evidence-and-empathy",
+      "permanent": true
+    },
+    {
+      "source": "/listening-as-a-clinical-intervention",
+      "destination": "/blog/listening-as-a-clinical-intervention",
+      "permanent": true
+    },
+    {
+      "source": "/making-debriefing-a-safety-practice-not-a-punishment",
+      "destination": "/blog/making-debriefing-a-safety-practice-not-a-punishment",
+      "permanent": true
+    },
+    {
+      "source": "/making-handoffs-more-human-and-more-reliable",
+      "destination": "/blog/making-handoffs-more-human-and-more-reliable",
+      "permanent": true
+    },
+    {
+      "source": "/managing-cognitive-load-in-emergency-care",
+      "destination": "/blog/managing-cognitive-load-in-emergency-care",
+      "permanent": true
+    },
+    {
+      "source": "/mentorship-and-career-growth",
+      "destination": "/blog/mentorship-and-career-growth",
+      "permanent": true
+    },
+    {
+      "source": "/mentorship-and-career-growth-practical-reflection-16",
+      "destination": "/blog/mentorship-and-career-growth-practical-reflection-16",
+      "permanent": true
+    },
+    {
+      "source": "/mentorship-and-career-growth-practical-reflection-24",
+      "destination": "/blog/mentorship-and-career-growth-practical-reflection-24",
+      "permanent": true
+    },
+    {
+      "source": "/mentorship-and-career-growth-practical-reflection-8",
+      "destination": "/blog/mentorship-and-career-growth-practical-reflection-8",
+      "permanent": true
+    },
+    {
+      "source": "/mentorship-is-more-than-advice",
+      "destination": "/blog/mentorship-is-more-than-advice",
+      "permanent": true
+    },
+    {
+      "source": "/mentorship-starts-in-the-classroom",
+      "destination": "/blog/mentorship-starts-in-the-classroom",
+      "permanent": true
+    },
+    {
+      "source": "/moral-distress-and-the-nurse-who-keeps-showing-up",
+      "destination": "/blog/moral-distress-and-the-nurse-who-keeps-showing-up",
+      "permanent": true
+    },
+    {
+      "source": "/nurse-practitioners-as-patient-educators",
+      "destination": "/blog/nurse-practitioners-as-patient-educators",
+      "permanent": true
+    },
+    {
+      "source": "/nursing-education",
+      "destination": "/blog/nursing-education",
+      "permanent": true
+    },
+    {
+      "source": "/nursing-education-practical-reflection-12",
+      "destination": "/blog/nursing-education-practical-reflection-12",
+      "permanent": true
+    },
+    {
+      "source": "/nursing-education-practical-reflection-20",
+      "destination": "/blog/nursing-education-practical-reflection-20",
+      "permanent": true
+    },
+    {
+      "source": "/nursing-education-practical-reflection-28",
+      "destination": "/blog/nursing-education-practical-reflection-28",
+      "permanent": true
+    },
+    {
+      "source": "/nursing-education-practical-reflection-4",
+      "destination": "/blog/nursing-education-practical-reflection-4",
+      "permanent": true
+    },
+    {
+      "source": "/online-nursing-education-can-still-feel-human",
+      "destination": "/blog/online-nursing-education-can-still-feel-human",
+      "permanent": true
+    },
+    {
+      "source": "/patient-advocacy",
+      "destination": "/blog/patient-advocacy",
+      "permanent": true
+    },
+    {
+      "source": "/patient-advocacy-and-professional-courage",
+      "destination": "/blog/patient-advocacy-and-professional-courage",
+      "permanent": true
+    },
+    {
+      "source": "/patient-advocacy-begins-with-noticing",
+      "destination": "/blog/patient-advocacy-begins-with-noticing",
+      "permanent": true
+    },
+    {
+      "source": "/patient-advocacy-practical-reflection-14",
+      "destination": "/blog/patient-advocacy-practical-reflection-14",
+      "permanent": true
+    },
+    {
+      "source": "/patient-advocacy-practical-reflection-22",
+      "destination": "/blog/patient-advocacy-practical-reflection-22",
+      "permanent": true
+    },
+    {
+      "source": "/patient-advocacy-practical-reflection-30",
+      "destination": "/blog/patient-advocacy-practical-reflection-30",
+      "permanent": true
+    },
+    {
+      "source": "/patient-advocacy-practical-reflection-6",
+      "destination": "/blog/patient-advocacy-practical-reflection-6",
+      "permanent": true
+    },
+    {
+      "source": "/professional-identity-after-the-dnp",
+      "destination": "/blog/professional-identity-after-the-dnp",
+      "permanent": true
+    },
+    {
+      "source": "/protecting-nurses-during-high-acuity-patient-care",
+      "destination": "/blog/protecting-nurses-during-high-acuity-patient-care",
+      "permanent": true
+    },
+    {
+      "source": "/rebuilding-purpose-after-a-difficult-shift",
+      "destination": "/blog/rebuilding-purpose-after-a-difficult-shift",
+      "permanent": true
+    },
+    {
+      "source": "/resilience-metrics-should-lead-to-action",
+      "destination": "/blog/resilience-metrics-should-lead-to-action",
+      "permanent": true
+    },
+    {
+      "source": "/safety-culture-is-built-in-the-small-moments",
+      "destination": "/blog/safety-culture-is-built-in-the-small-moments",
+      "permanent": true
+    },
+    {
+      "source": "/speaking-up-without-sounding-combative",
+      "destination": "/blog/speaking-up-without-sounding-combative",
+      "permanent": true
+    },
+    {
+      "source": "/student-centered-learning-in-clinical-education",
+      "destination": "/blog/student-centered-learning-in-clinical-education",
+      "permanent": true
+    },
+    {
+      "source": "/students-learn-best-when-they-feel-safe-enough-to-try",
+      "destination": "/blog/students-learn-best-when-they-feel-safe-enough-to-try",
+      "permanent": true
+    },
+    {
+      "source": "/supporting-novice-nurses-in-high-acuity-spaces",
+      "destination": "/blog/supporting-novice-nurses-in-high-acuity-spaces",
+      "permanent": true
+    },
+    {
+      "source": "/teaching-advocacy-to-new-nurses",
+      "destination": "/blog/teaching-advocacy-to-new-nurses",
+      "permanent": true
+    },
+    {
+      "source": "/teaching-clinical-judgment-in-the-first-semester",
+      "destination": "/blog/teaching-clinical-judgment-in-the-first-semester",
+      "permanent": true
+    },
+    {
+      "source": "/teaching-students-to-give-concise-reports",
+      "destination": "/blog/teaching-students-to-give-concise-reports",
+      "permanent": true
+    },
+    {
+      "source": "/teaching-the-hidden-curriculum-of-nursing",
+      "destination": "/blog/teaching-the-hidden-curriculum-of-nursing",
+      "permanent": true
+    },
+    {
+      "source": "/the-burnout-risk-of-always-being-the-strong-one",
+      "destination": "/blog/the-burnout-risk-of-always-being-the-strong-one",
+      "permanent": true
+    },
+    {
+      "source": "/the-difference-between-resilience-and-endurance",
+      "destination": "/blog/the-difference-between-resilience-and-endurance",
+      "permanent": true
+    },
+    {
+      "source": "/the-dnp-mindset-in-daily-practice",
+      "destination": "/blog/the-dnp-mindset-in-daily-practice",
+      "permanent": true
+    },
+    {
+      "source": "/the-ed-nurse-as-translator",
+      "destination": "/blog/the-ed-nurse-as-translator",
+      "permanent": true
+    },
+    {
+      "source": "/the-emotional-safety-side-of-clinical-practice",
+      "destination": "/blog/the-emotional-safety-side-of-clinical-practice",
+      "permanent": true
+    },
+    {
+      "source": "/the-ethics-of-everyday-nursing-advocacy",
+      "destination": "/blog/the-ethics-of-everyday-nursing-advocacy",
+      "permanent": true
+    },
+    {
+      "source": "/the-first-five-minutes-of-a-high-acuity-situation",
+      "destination": "/blog/the-first-five-minutes-of-a-high-acuity-situation",
+      "permanent": true
+    },
+    {
+      "source": "/the-hidden-safety-risks-nurses-normalize-too-quickly",
+      "destination": "/blog/the-hidden-safety-risks-nurses-normalize-too-quickly",
+      "permanent": true
+    },
+    {
+      "source": "/the-link-between-nurse-well-being-and-patient-advocacy",
+      "destination": "/blog/the-link-between-nurse-well-being-and-patient-advocacy",
+      "permanent": true
+    },
+    {
+      "source": "/the-nurse-as-ethical-communicator",
+      "destination": "/blog/the-nurse-as-ethical-communicator",
+      "permanent": true
+    },
+    {
+      "source": "/the-nurse-educator-as-facilitator-and-coach",
+      "destination": "/blog/the-nurse-educator-as-facilitator-and-coach",
+      "permanent": true
+    },
+    {
+      "source": "/the-nurse-practitioner-as-clinical-communicator",
+      "destination": "/blog/the-nurse-practitioner-as-clinical-communicator",
+      "permanent": true
+    },
+    {
+      "source": "/the-power-of-closed-loop-communication",
+      "destination": "/blog/the-power-of-closed-loop-communication",
+      "permanent": true
+    },
+    {
+      "source": "/the-quiet-skills-behind-fast-nursing-decisions",
+      "destination": "/blog/the-quiet-skills-behind-fast-nursing-decisions",
+      "permanent": true
+    },
+    {
+      "source": "/the-role-of-leadership-in-safer-nursing-shifts",
+      "destination": "/blog/the-role-of-leadership-in-safer-nursing-shifts",
+      "permanent": true
+    },
+    {
+      "source": "/the-safety-value-of-a-calm-charge-nurse",
+      "destination": "/blog/the-safety-value-of-a-calm-charge-nurse",
+      "permanent": true
+    },
+    {
+      "source": "/the-teaching-power-of-emergency-nursing-stories",
+      "destination": "/blog/the-teaching-power-of-emergency-nursing-stories",
+      "permanent": true
+    },
+    {
+      "source": "/the-transition-from-rn-to-nurse-practitioner",
+      "destination": "/blog/the-transition-from-rn-to-nurse-practitioner",
+      "permanent": true
+    },
+    {
+      "source": "/the-value-of-formative-assessment",
+      "destination": "/blog/the-value-of-formative-assessment",
+      "permanent": true
+    },
+    {
+      "source": "/the-value-of-nonlinear-nursing-careers",
+      "destination": "/blog/the-value-of-nonlinear-nursing-careers",
+      "permanent": true
+    },
+    {
+      "source": "/trauma-nursing-and-the-discipline-of-preparedness",
+      "destination": "/blog/trauma-nursing-and-the-discipline-of-preparedness",
+      "permanent": true
+    },
+    {
+      "source": "/turning-conflict-into-clinical-clarity",
+      "destination": "/blog/turning-conflict-into-clinical-clarity",
+      "permanent": true
+    },
+    {
+      "source": "/using-micro-recovery-during-long-shifts",
+      "destination": "/blog/using-micro-recovery-during-long-shifts",
+      "permanent": true
+    },
+    {
+      "source": "/violence-prevention-starts-before-the-escalation",
+      "destination": "/blog/violence-prevention-starts-before-the-escalation",
+      "permanent": true
+    },
+    {
+      "source": "/what-emergency-nursing-teaches-about-priorities",
+      "destination": "/blog/what-emergency-nursing-teaches-about-priorities",
+      "permanent": true
+    },
+    {
+      "source": "/what-experienced-nurses-can-give-the-next-generation",
+      "destination": "/blog/what-experienced-nurses-can-give-the-next-generation",
+      "permanent": true
+    },
+    {
+      "source": "/what-future-nurse-practitioners-need-to-hear",
+      "destination": "/blog/what-future-nurse-practitioners-need-to-hear",
+      "permanent": true
+    },
+    {
+      "source": "/what-new-nurses-need-to-know-about-workplace-boundaries",
+      "destination": "/blog/what-new-nurses-need-to-know-about-workplace-boundaries",
+      "permanent": true
+    },
+    {
+      "source": "/when-advocacy-requires-persistence",
+      "destination": "/blog/when-advocacy-requires-persistence",
+      "permanent": true
+    },
+    {
+      "source": "/when-nurses-feel-unsafe-patients-feel-the-impact",
+      "destination": "/blog/when-nurses-feel-unsafe-patients-feel-the-impact",
+      "permanent": true
+    },
+    {
+      "source": "/when-nurses-outgrow-their-first-plan",
+      "destination": "/blog/when-nurses-outgrow-their-first-plan",
+      "permanent": true
+    },
+    {
+      "source": "/when-silence-becomes-a-safety-risk",
+      "destination": "/blog/when-silence-becomes-a-safety-risk",
+      "permanent": true
+    },
+    {
+      "source": "/when-the-waiting-room-is-part-of-the-clinical-picture",
+      "destination": "/blog/when-the-waiting-room-is-part-of-the-clinical-picture",
+      "permanent": true
+    },
+    {
+      "source": "/why-advanced-practice-requires-humility",
+      "destination": "/blog/why-advanced-practice-requires-humility",
+      "permanent": true
+    },
+    {
+      "source": "/why-approachable-faculty-matter",
+      "destination": "/blog/why-approachable-faculty-matter",
+      "permanent": true
+    },
+    {
+      "source": "/why-break-culture-matters-in-nursing",
+      "destination": "/blog/why-break-culture-matters-in-nursing",
+      "permanent": true
+    },
+    {
+      "source": "/why-case-studies-still-work",
+      "destination": "/blog/why-case-studies-still-work",
+      "permanent": true
+    },
+    {
+      "source": "/why-communication-skills-advance-nursing-careers",
+      "destination": "/blog/why-communication-skills-advance-nursing-careers",
+      "permanent": true
+    },
+    {
+      "source": "/why-emergency-nurses-need-recovery-rituals",
+      "destination": "/blog/why-emergency-nurses-need-recovery-rituals",
+      "permanent": true
+    },
+    {
+      "source": "/why-lifelong-learning-keeps-nurses-grounded",
+      "destination": "/blog/why-lifelong-learning-keeps-nurses-grounded",
+      "permanent": true
+    },
+    {
+      "source": "/why-nurses-need-permission-to-be-human",
+      "destination": "/blog/why-nurses-need-permission-to-be-human",
+      "permanent": true
+    },
+    {
+      "source": "/why-nurses-should-tell-better-career-stories",
+      "destination": "/blog/why-nurses-should-tell-better-career-stories",
+      "permanent": true
+    },
+    {
+      "source": "/why-nursing-students-need-structured-reflection",
+      "destination": "/blog/why-nursing-students-need-structured-reflection",
+      "permanent": true
+    },
+    {
+      "source": "/why-protocols-still-need-human-judgment",
+      "destination": "/blog/why-protocols-still-need-human-judgment",
+      "permanent": true
+    },
+    {
+      "source": "/why-psychological-safety-belongs-in-every-nursing-unit",
+      "destination": "/blog/why-psychological-safety-belongs-in-every-nursing-unit",
+      "permanent": true
+    },
+    {
+      "source": "/why-reporting-near-misses-should-feel-routine",
+      "destination": "/blog/why-reporting-near-misses-should-feel-routine",
+      "permanent": true
+    },
+    {
+      "source": "/why-tone-matters-during-clinical-escalation",
+      "destination": "/blog/why-tone-matters-during-clinical-escalation",
+      "permanent": true
+    },
+    {
+      "source": "/why-trauma-teams-depend-on-communication-discipline",
+      "destination": "/blog/why-trauma-teams-depend-on-communication-discipline",
+      "permanent": true
+    }
+  ]
 }
