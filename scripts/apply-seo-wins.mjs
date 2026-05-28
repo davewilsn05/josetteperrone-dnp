@@ -66,6 +66,18 @@ const wordsInArticle = (html) => {
 
 const readingTime = (html) => Math.max(4, Math.ceil(wordsInArticle(html) / 190));
 
+const faviconLinks = (prefix = "") => `    <link rel="icon" href="${prefix}/assets/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="${prefix}/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="${prefix}/assets/brand/apple-touch-icon.png" />`;
+
+const ensureFavicons = (html, prefix = "") => {
+  if (html.includes('rel="icon"') || html.includes("rel='icon'")) return html;
+  return html.replace(
+    /(\s*<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com" \/>)/,
+    `\n${faviconLinks(prefix)}$1`,
+  );
+};
+
 const byCategory = new Map();
 for (const article of articles) {
   if (!byCategory.has(article.category)) byCategory.set(article.category, []);
@@ -92,6 +104,7 @@ const relatedFor = (article) => {
 for (const article of articles) {
   const file = path.join(blogDir, `${article.slug}.html`);
   let html = fs.readFileSync(file, "utf8");
+  html = ensureFavicons(html, "..");
   const minutes = readingTime(html);
   const category = categories.find((candidate) => candidate.name === article.category);
   const tags = category.tags;
@@ -135,6 +148,7 @@ const categoryNav = categories
   .join("\n              ");
 
 let blogIndex = fs.readFileSync(path.join(blogDir, "index.html"), "utf8");
+blogIndex = ensureFavicons(blogIndex, "..");
 blogIndex = blogIndex.replace(/<a href="#[^"]+"><span>[\s\S]*?<\/strong><\/a>(\s*<a href="#[^"]+"><span>[\s\S]*?<\/strong><\/a>)*/m, categoryNav);
 blogIndex = blogIndex.replace(/<link rel="stylesheet" href="\.\.\/styles\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="../styles.css?v=20260524-posthog-seo" />');
 blogIndex = blogIndex.replace(/<link rel="stylesheet" href="blog\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="blog.css?v=20260524-topic-silos" />');
@@ -184,6 +198,7 @@ for (const category of categories) {
     <meta name="twitter:description" content="${escapeHtml(description)}" />
     <meta name="twitter:image" content="${baseUrl}/assets/brand/og-josette-perrone-contrast.png" />
     <meta name="theme-color" content="#0d7c78" />
+${faviconLinks("..")}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
