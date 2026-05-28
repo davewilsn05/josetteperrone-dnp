@@ -92,6 +92,7 @@ const pages = [
     lede:
       "Josette speaks to nurses, nursing students, educators, and leaders about the human and clinical realities of the profession: burnout, boundaries, communication, safety, advocacy, mentorship, and growth.",
     image: "/assets/speaker/nurse-educator-workshop.png",
+    imagePosition: "50% 18%",
     proof: ["Nursing conferences", "Nursing schools", "Nurses Week", "Residency programs", "Preceptor development"],
     sections: [
       ["Why nursing audiences connect with Josette", "Her message is grounded in lived nursing experience rather than generic motivation. She understands high-acuity care, novice nurse development, nursing education, advanced practice, and the emotional weight nurses often carry quietly."],
@@ -237,6 +238,7 @@ const pages = [
     lede:
       "Josette's communication and safety talks focus on the language, habits, and team conditions that help clinicians speak up, hand off clearly, debrief without blame, and protect both patients and staff.",
     image: "/assets/speaker/nurse-educator-workshop.png",
+    imagePosition: "50% 18%",
     proof: ["Clinical communication", "Team safety", "Handoffs", "Escalation", "Psychological safety"],
     sections: [
       ["What this topic covers", "Closed-loop communication, handoffs, safety huddles, debriefing, tone during escalation, speaking up without sounding combative, and the small moments that shape safety culture."],
@@ -266,6 +268,7 @@ const pages = [
     lede:
       "Josette speaks to educators, students, preceptors, and academic leaders about clinical judgment, psychological safety, mentorship, simulation, student-centered teaching, and helping novice nurses find their voice.",
     image: "/assets/speaker/nurse-educator-workshop.png",
+    imagePosition: "50% 18%",
     proof: ["Nurse educators", "Students", "Preceptors", "Clinical judgment", "Mentorship"],
     sections: [
       ["What this topic covers", "Clinical judgment, student confidence, formative assessment, role play, simulation, hidden curriculum, approachable faculty, and structured reflection."],
@@ -324,6 +327,7 @@ const pages = [
     lede:
       "Josette helps nursing school audiences connect clinical judgment, confidence, mentorship, communication, boundaries, and professional identity with the real pressures students and novice nurses will face.",
     image: "/assets/speaker/nurse-educator-workshop.png",
+    imagePosition: "50% 18%",
     proof: ["Nursing students", "Faculty", "Preceptors", "Clinical judgment", "Professional identity"],
     sections: [
       ["Student sessions", "Topics can support confidence, communication, boundaries, advocacy, clinical judgment, and the transition from student to clinician."],
@@ -523,7 +527,7 @@ function renderPage(page) {
     <main>
       <section class="hero section chevron-section">
         <aside class="hero-visual parallax-frame" aria-label="${escapeHtml(page.eyebrow)}">
-          <img src="${escapeHtml(page.image)}" alt="Josette Perrone healthcare speaker" data-parallax-speed="0.12" />
+          <img src="${escapeHtml(page.image)}" alt="Josette Perrone healthcare speaker" data-parallax-speed="0.12"${page.imagePosition ? ` style="object-position: ${escapeHtml(page.imagePosition)}"` : ""} />
         </aside>
         <div class="hero-copy">
           <p class="eyebrow">${escapeHtml(page.eyebrow)}</p>
