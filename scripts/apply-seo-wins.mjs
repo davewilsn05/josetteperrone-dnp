@@ -80,6 +80,11 @@ const ensureFavicons = (html, prefix = "") => {
   );
 };
 
+const normalizeBlogLinks = (html) =>
+  html
+    .replaceAll('href="index.html"', 'href="/blog/"')
+    .replace(/href="([a-z0-9-]+)\.html"/g, 'href="/blog/$1"');
+
 const byCategory = new Map();
 for (const article of articles) {
   if (!byCategory.has(article.category)) byCategory.set(article.category, []);
@@ -108,6 +113,7 @@ for (const article of articles) {
   let html = fs.readFileSync(file, "utf8");
   html = ensureFavicons(html, "..");
   html = html.replace(/<nav class="site-nav">[\s\S]*?<\/nav>/, fullBlogNav);
+  html = normalizeBlogLinks(html);
   const minutes = readingTime(html);
   const category = categories.find((candidate) => candidate.name === article.category);
   const tags = category.tags;
@@ -119,7 +125,7 @@ for (const article of articles) {
 
   html = html.replace(
     /<p class="article-meta"><span>[\s\S]*?<\/time><\/p>/,
-    `<p class="article-meta"><a href="${category.slug}.html">${escapeHtml(article.category)}</a><time datetime="${article.date}">${article.dateDisplay}</time><span>${minutes} min read</span></p>`,
+    `<p class="article-meta"><a href="/blog/${category.slug}">${escapeHtml(article.category)}</a><time datetime="${article.date}">${article.dateDisplay}</time><span>${minutes} min read</span></p>`,
   );
 
   const tagMarkup = `<div class="article-tags" aria-label="Article topics">${tags
@@ -133,7 +139,7 @@ for (const article of articles) {
           <div class="related-grid">
             ${relatedFor(article)
               .map(
-                (related) => `<a href="${related.slug}.html">
+                (related) => `<a href="/blog/${related.slug}">
               <span>${escapeHtml(related.category)}</span>
               <strong>${escapeHtml(related.title)}</strong>
             </a>`,
@@ -147,12 +153,13 @@ for (const article of articles) {
 }
 
 const categoryNav = categories
-  .map((category) => `<a href="${category.slug}.html"><span>${escapeHtml(category.name)}</span><strong>${category.articles.length}</strong></a>`)
+  .map((category) => `<a href="/blog/${category.slug}"><span>${escapeHtml(category.name)}</span><strong>${category.articles.length}</strong></a>`)
   .join("\n              ");
 
 let blogIndex = fs.readFileSync(path.join(blogDir, "index.html"), "utf8");
 blogIndex = ensureFavicons(blogIndex, "..");
 blogIndex = blogIndex.replace(/<nav class="site-nav">[\s\S]*?<\/nav>/, fullBlogNav);
+blogIndex = normalizeBlogLinks(blogIndex);
 blogIndex = blogIndex.replace(/<a href="#[^"]+"><span>[\s\S]*?<\/strong><\/a>(\s*<a href="#[^"]+"><span>[\s\S]*?<\/strong><\/a>)*/m, categoryNav);
 blogIndex = blogIndex.replace(/<link rel="stylesheet" href="\.\.\/styles\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="../styles.css?v=20260524-posthog-seo" />');
 blogIndex = blogIndex.replace(/<link rel="stylesheet" href="blog\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="blog.css?v=20260524-topic-silos" />');
@@ -173,7 +180,7 @@ for (const category of categories) {
     .join(",\n        ");
   const cards = category.articles
     .map(
-      (article) => `<a class="category-article-card" href="${article.slug}.html">
+      (article) => `<a class="category-article-card" href="/blog/${article.slug}">
               <p class="article-meta"><span>${escapeHtml(article.category)}</span><time datetime="${article.date}">${article.dateDisplay}</time></p>
               <h2>${escapeHtml(article.title)}</h2>
               <p>${escapeHtml(article.focus)}.</p>
@@ -238,7 +245,7 @@ ${faviconLinks("..")}
     <main>
       <section class="blog-hero section category-hero">
         <div class="blog-hero-copy">
-          <a class="back-link" href="index.html">Back to all articles</a>
+          <a class="back-link" href="/blog/">Back to all articles</a>
           <p class="eyebrow">Topic library</p>
           <h1>${escapeHtml(category.name)}</h1>
           <p class="hero-lede">${escapeHtml(description)}</p>
