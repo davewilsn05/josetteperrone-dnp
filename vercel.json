@@ -3,6 +3,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.josetteperrone.com"
+        }
+      ],
+      "destination": "https://josetteperrone.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/a-practical-resilience-framework-for-nurse-teams",
       "destination": "/blog/a-practical-resilience-framework-for-nurse-teams",
       "permanent": true

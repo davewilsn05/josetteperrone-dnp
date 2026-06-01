@@ -83,6 +83,8 @@ const ensureFavicons = (html, prefix = "") => {
 const normalizeBlogLinks = (html) =>
   html
     .replaceAll('href="index.html"', 'href="/blog/"')
+    .replaceAll('href="../index.html#top"', 'href="/#top"')
+    .replaceAll('href="../index.html#booking"', 'href="/#booking"')
     .replace(/href="([a-z0-9-]+)\.html"/g, 'href="/blog/$1"');
 
 const byCategory = new Map();
@@ -239,7 +241,7 @@ ${faviconLinks("..")}
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="../index.html#top" aria-label="Josette Perrone home"><span class="brand-mark">JP</span><span><strong>Josette Perrone</strong><small>DNP, FNP-C, RN</small></span></a>
+      <a class="brand" href="/#top" aria-label="Josette Perrone home"><span class="brand-mark">JP</span><span><strong>Josette Perrone</strong><small>DNP, FNP-C, RN</small></span></a>
       ${fullBlogNav}
     </header>
     <main>
