@@ -1,0 +1,66 @@
+name: Auto Blog
+
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+    inputs:
+      category:
+        description: "Optional exact blog category"
+        required: false
+        type: string
+      title:
+        description: "Optional working title"
+        required: false
+        type: string
+      dry_run:
+        description: "Run without committing generated files"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate daily blog post
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          AUTO_BLOG_MODEL: ${{ vars.AUTO_BLOG_MODEL }}
+          AUTO_BLOG_BASE_URL: https://josetteperrone.com
+        run: |
+          FLAGS=(--publish --require-ai)
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            FLAGS=(--dry-run --require-ai)
+          fi
+          if [ -n "${{ inputs.category }}" ]; then
+            FLAGS+=(--category "${{ inputs.category }}")
+          fi
+          if [ -n "${{ inputs.title }}" ]; then
+            FLAGS+=(--title "${{ inputs.title }}")
+          fi
+          node scripts/auto-blog.mjs "${FLAGS[@]}"
+
+      - name: Commit generated post
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
+        run: |
+          if git diff --quiet; then
+            echo "No generated changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog scripts package.json .env.example
+          git commit -m "Generate daily clinical field note"
+          git push

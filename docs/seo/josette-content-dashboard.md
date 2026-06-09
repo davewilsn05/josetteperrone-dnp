@@ -2,7 +2,14 @@
 
 Generated: 2026-05-28
 
-This dashboard maps existing articles to SEO/AEO/GEO clusters and points each cluster back to a speaker or topic page.
+This dashboard maps existing articles to SEO/AEO/GEO clusters and points each cluster back to a speaker or topic page. After the June 9, 2026 pruning pass, only the cornerstone posts listed in `blog/editorial-index.json` should be indexable.
+
+## Indexing Status
+
+- Indexable cornerstone posts: 8
+- Noindex support/archive posts: 142
+- Blog category archive pages: noindex, follow
+- Sitemap policy: include only the blog hub, the 8 rewritten cornerstone posts, and primary speaker/topic/audience pages
 
 ## Cluster Counts
 
@@ -29,7 +36,9 @@ This dashboard maps existing articles to SEO/AEO/GEO clusters and points each cl
 ## Workflow
 
 - Keep one broad topic page as the canonical page for each cluster.
-- Refresh individual blog posts as long-tail support pages.
+- Refresh individual blog posts only when they can become cornerstone-quality resources.
+- Leave thin support posts as `noindex, follow`.
+- Add a blog slug to `blog/editorial-index.json` only after it meets `docs/seo/blog-guidelines.md`.
 - Add a visible booking CTA to high-traffic posts.
 - Avoid creating new posts that target the same phrase as an existing category or topic page.
 

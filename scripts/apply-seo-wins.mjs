@@ -4,8 +4,11 @@ import path from "node:path";
 const root = process.cwd();
 const blogDir = path.join(root, "blog");
 const baseUrl = "https://josetteperrone.com";
-const today = "2026-05-24";
+const today = "2026-06-09";
 const articles = JSON.parse(fs.readFileSync(path.join(blogDir, "articles.json"), "utf8"));
+const editorialIndex = JSON.parse(fs.readFileSync(path.join(blogDir, "editorial-index.json"), "utf8"));
+const indexableArticleSlugs = new Set(editorialIndex.indexableArticleSlugs);
+const indexableArticles = articles.filter((article) => indexableArticleSlugs.has(article.slug));
 
 const categoryDescriptions = {
   "Healthcare Worker Safety":
@@ -70,7 +73,7 @@ const faviconLinks = (prefix = "") => `    <link rel="icon" href="${prefix}/asse
     <link rel="icon" href="${prefix}/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="${prefix}/assets/brand/apple-touch-icon.png" />`;
 
-const fullBlogNav = `<nav class="site-nav"><a href="/healthcare-speaker">Healthcare Speaker</a><a href="/nursing-speaker">Nursing Speaker</a><a href="/keynotes-workshops">Topics</a><a href="/#experience">Experience</a><a href="/#about">About</a><a href="/blog/">Blog</a><a href="/#booking">Booking</a></nav>`;
+const fullBlogNav = `<nav class="site-nav"><a href="/healthcare-speaker">Healthcare Speaker</a><a href="/nursing-speaker">Nursing Speaker</a><a href="/keynotes-workshops">Topics</a><a href="/#experience">Experience</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/#booking">Booking</a></nav>`;
 
 const ensureFavicons = (html, prefix = "") => {
   if (html.includes('rel="icon"') || html.includes("rel='icon'")) return html;
@@ -82,7 +85,7 @@ const ensureFavicons = (html, prefix = "") => {
 
 const normalizeBlogLinks = (html) =>
   html
-    .replaceAll('href="index.html"', 'href="/blog/"')
+    .replaceAll('href="index.html"', 'href="/blog"')
     .replaceAll('href="../index.html#top"', 'href="/#top"')
     .replaceAll('href="../index.html#booking"', 'href="/#booking"')
     .replace(/href="([a-z0-9-]+)\.html"/g, 'href="/blog/$1"');
@@ -102,11 +105,13 @@ const categories = [...byCategory.keys()].map((name) => ({
 }));
 
 const relatedFor = (article) => {
-  const peers = byCategory.get(article.category).filter((candidate) => candidate.slug !== article.slug);
+  const peers = indexableArticles.filter(
+    (candidate) => candidate.category === article.category && candidate.slug !== article.slug,
+  );
   if (peers.length >= 3) return peers.slice(0, 3);
   return [
     ...peers,
-    ...articles.filter((candidate) => candidate.category !== article.category).slice(0, 3 - peers.length),
+    ...indexableArticles.filter((candidate) => candidate.category !== article.category).slice(0, 3 - peers.length),
   ];
 };
 
@@ -116,9 +121,23 @@ for (const article of articles) {
   html = ensureFavicons(html, "..");
   html = html.replace(/<nav class="site-nav">[\s\S]*?<\/nav>/, fullBlogNav);
   html = normalizeBlogLinks(html);
+  html = html
+    .replace(/\n\s*<meta name="reading-time" content="[^"]+" \/>/g, "")
+    .replace(/\n\s*<meta name="article:section" content="[^"]+" \/>/g, "")
+    .replace(/\n\s*<meta name="keywords" content="[^"]+" \/>/g, "")
+    .replace(/\n\s*<div class="article-tags" aria-label="Article topics">[\s\S]*?<\/div>/g, "")
+    .replace(/\n\s*<section class="related-articles" aria-labelledby="related-title">[\s\S]*?<\/section>/g, "");
   const minutes = readingTime(html);
   const category = categories.find((candidate) => candidate.name === article.category);
   const tags = category.tags;
+  const robots = indexableArticleSlugs.has(article.slug)
+    ? "index, follow, max-image-preview:large"
+    : "noindex, follow, max-image-preview:large";
+
+  html = html.replace(
+    /<meta name="robots" content="[^"]+" \/>/,
+    `<meta name="robots" content="${robots}" />`,
+  );
 
   html = html.replace(
     /<meta name="description" content="([^"]+)" \/>/,
@@ -126,8 +145,8 @@ for (const article of articles) {
   );
 
   html = html.replace(
-    /<p class="article-meta"><span>[\s\S]*?<\/time><\/p>/,
-    `<p class="article-meta"><a href="/blog/${category.slug}">${escapeHtml(article.category)}</a><time datetime="${article.date}">${article.dateDisplay}</time><span>${minutes} min read</span></p>`,
+    /<p class="article-meta"><(?:span|a)[\s\S]*?<\/time>(?:<span>[\s\S]*?<\/span>)?<\/p>/,
+    `<p class="article-meta"><span>${escapeHtml(article.category)}</span><time datetime="${article.date}">${article.dateDisplay}</time><span>${minutes} min read</span></p>`,
   );
 
   const tagMarkup = `<div class="article-tags" aria-label="Article topics">${tags
@@ -198,7 +217,7 @@ for (const category of categories) {
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}" />
     <meta name="author" content="Josette Perrone" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="noindex, follow, max-image-preview:large" />
     <link rel="canonical" href="${baseUrl}/blog/${category.slug}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="${escapeHtml(title)}" />
@@ -247,7 +266,7 @@ ${faviconLinks("..")}
     <main>
       <section class="blog-hero section category-hero">
         <div class="blog-hero-copy">
-          <a class="back-link" href="/blog/">Back to all articles</a>
+          <a class="back-link" href="/blog">Back to all articles</a>
           <p class="eyebrow">Topic library</p>
           <h1>${escapeHtml(category.name)}</h1>
           <p class="hero-lede">${escapeHtml(description)}</p>
@@ -271,20 +290,29 @@ ${faviconLinks("..")}
   fs.writeFileSync(path.join(blogDir, `${category.slug}.html`), html);
 }
 
+const primarySitemapUrls = [
+  { loc: `${baseUrl}/healthcare-speaker`, lastmod: today, changefreq: "monthly", priority: "0.9" },
+  { loc: `${baseUrl}/nursing-speaker`, lastmod: today, changefreq: "monthly", priority: "0.9" },
+  { loc: `${baseUrl}/nurses-week-speaker`, lastmod: today, changefreq: "monthly", priority: "0.9" },
+  { loc: `${baseUrl}/keynotes-workshops`, lastmod: today, changefreq: "monthly", priority: "0.9" },
+  { loc: `${baseUrl}/speaker-summary`, lastmod: today, changefreq: "monthly", priority: "0.9" },
+  { loc: `${baseUrl}/topics/nurse-burnout-resilience`, lastmod: today, changefreq: "monthly", priority: "0.8" },
+  { loc: `${baseUrl}/topics/healthcare-communication-safety`, lastmod: today, changefreq: "monthly", priority: "0.8" },
+  { loc: `${baseUrl}/topics/nursing-education`, lastmod: today, changefreq: "monthly", priority: "0.8" },
+  { loc: `${baseUrl}/topics/emergency-trauma-nursing`, lastmod: today, changefreq: "monthly", priority: "0.8" },
+  { loc: `${baseUrl}/audiences/nursing-schools`, lastmod: today, changefreq: "monthly", priority: "0.8" },
+  { loc: `${baseUrl}/audiences/hospitals-health-systems`, lastmod: today, changefreq: "monthly", priority: "0.8" },
+];
+
 const sitemapUrls = [
   { loc: `${baseUrl}/`, lastmod: today, changefreq: "monthly", priority: "1.0" },
-  { loc: `${baseUrl}/blog/`, lastmod: today, changefreq: "weekly", priority: "0.8" },
-  ...categories.map((category) => ({
-    loc: `${baseUrl}/blog/${category.slug}`,
-    lastmod: today,
-    changefreq: "weekly",
-    priority: "0.7",
-  })),
-  ...articles.map((article) => ({
+  { loc: `${baseUrl}/blog`, lastmod: today, changefreq: "weekly", priority: "0.8" },
+  ...primarySitemapUrls,
+  ...indexableArticles.map((article) => ({
     loc: `${baseUrl}/blog/${article.slug}`,
-    lastmod: article.date,
+    lastmod: editorialIndex.updated || today,
     changefreq: "monthly",
-    priority: "0.6",
+    priority: "0.7",
   })),
 ];
 

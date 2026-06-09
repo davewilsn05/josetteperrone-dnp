@@ -1,0 +1,14 @@
+{
+  "updated": "2026-06-09",
+  "strategy": "Only cornerstone articles that have been rewritten for unique value should be indexable. Thin archive/support articles remain accessible but use noindex, follow and are excluded from the XML sitemap.",
+  "indexableArticleSlugs": [
+    "the-hidden-safety-risks-nurses-normalize-too-quickly",
+    "burnout-is-not-a-personal-failure",
+    "what-emergency-nursing-teaches-about-priorities",
+    "why-case-studies-still-work",
+    "clear-communication-is-a-clinical-skill",
+    "documentation-as-a-patient-advocacy-tool",
+    "the-transition-from-rn-to-nurse-practitioner",
+    "from-student-to-clinician-to-leader"
+  ]
+}

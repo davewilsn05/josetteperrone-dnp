@@ -5,6 +5,9 @@ const root = process.cwd();
 const baseUrl = "https://josetteperrone.com";
 const today = "2026-05-28";
 const articles = JSON.parse(fs.readFileSync(path.join(root, "blog", "articles.json"), "utf8"));
+const editorialIndex = JSON.parse(fs.readFileSync(path.join(root, "blog", "editorial-index.json"), "utf8"));
+const indexableArticleSlugs = new Set(editorialIndex.indexableArticleSlugs);
+const indexableArticles = articles.filter((article) => indexableArticleSlugs.has(article.slug));
 
 const escapeHtml = (value) =>
   String(value)
@@ -14,6 +17,12 @@ const escapeHtml = (value) =>
     .replaceAll('"', "&quot;");
 
 const byCategory = articles.reduce((map, article) => {
+  if (!map.has(article.category)) map.set(article.category, []);
+  map.get(article.category).push(article);
+  return map;
+}, new Map());
+
+const indexableByCategory = indexableArticles.reduce((map, article) => {
   if (!map.has(article.category)) map.set(article.category, []);
   map.get(article.category).push(article);
   return map;
@@ -32,7 +41,7 @@ const categoryTargets = {
 
 const articleLinks = (categories, limit = 8) =>
   categories
-    .flatMap((category) => byCategory.get(category) ?? [])
+    .flatMap((category) => indexableByCategory.get(category) ?? [])
     .slice(0, limit)
     .map((article) => ({
       title: article.title,
@@ -124,9 +133,12 @@ const pages = [
     image: "/assets/speaker/clinical-team-corridor.png",
     proof: ["Nurses Week programs", "Staff development", "Hospital events", "Nursing school events", "Virtual sessions"],
     sections: [
-      ["A practical Nurses Week message", "Josette's Nurses Week sessions can honor nurses without pretending the work is easy. Her talks create room for resilience, boundaries, communication, psychological safety, and sustainable growth."],
-      ["Suggested session themes", "Leading without losing yourself, burnout is not a personal failure, communication under pressure, patient advocacy and professional courage, and what experienced nurses can give the next generation."],
-      ["Audience fit", "Clinical nurses, novice nurses, charge nurses, educators, preceptors, nurse leaders, and interdisciplinary healthcare teams are strong fits."],
+      ["A practical Nurses Week message", "Josette's Nurses Week sessions can honor nurses without pretending the work is easy. Her talks create room for resilience, boundaries, communication, psychological safety, and sustainable growth, while giving the room language they can carry back into real clinical settings."],
+      ["Suggested session themes", "Leading without losing yourself, burnout is not a personal failure, communication under pressure, patient advocacy and professional courage, and what experienced nurses can give the next generation. Themes can be shaped for appreciation events, staff development, leadership retreats, or nursing school programs."],
+      ["Audience fit", "Clinical nurses, novice nurses, charge nurses, educators, preceptors, nurse leaders, and interdisciplinary healthcare teams are strong fits. The session can speak to a mixed room without flattening the differences between bedside work, education, and leadership."],
+      ["For staff nurses", "A session can name the emotional and cognitive load nurses carry without turning the message into blame or vague motivation. Useful takeaways include clearer language for burnout, recovery after hard shifts, communication under pressure, and patient advocacy."],
+      ["For nurse leaders", "Leaders need language they can use after the event: questions for huddles, ways to respond when staff raise concerns, and practical signals that show whether recognition is connected to real support."],
+      ["For mixed audiences", "Many Nurses Week rooms include novice nurses, experienced nurses, educators, managers, and interdisciplinary partners. Josette's clinical and educational background makes it possible to speak to those groups together while keeping the message grounded in real nursing work."],
     ],
     cards: [
       ["Recognition with substance", "A message that respects nurses while giving them something useful."],
@@ -520,7 +532,7 @@ function renderPage(page) {
         <a href="/keynotes-workshops">Topics</a>
         <a href="/#experience">Experience</a>
         <a href="/#about">About</a>
-        <a href="/blog/">Blog</a>
+        <a href="/blog">Blog</a>
         <a href="/#booking">Booking</a>
       </nav>
     </header>
@@ -654,7 +666,7 @@ const dashboardRows = articles.map((article) => ({
         ? "team safety / communication speaker support"
         : "clinical leadership / speaker support",
   funnelStage: article.category === "Mentorship and Career Growth" ? "awareness" : "authority support",
-  status: "keep and refresh",
+  status: indexableArticleSlugs.has(article.slug) ? "indexable cornerstone" : "noindex support archive",
   internalLinkTarget: `${baseUrl}${categoryTargets[article.category] ?? "/keynotes-workshops"}`,
   bookingLinkTarget: `${baseUrl}/#booking`,
   lastRefreshed: today,
