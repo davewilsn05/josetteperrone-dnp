@@ -258,6 +258,7 @@ async function main() {
   const topic = chooseTopic(profile, existingSlugs);
   const draft = await createDraft({ articles, category, profile, topic, indexableSlugs });
   const article = normalizeDraft(draft, { category, profile, topic });
+  ensureMinimumLength(article, { category, profile, topic });
   const slug = uniqueSlug(slugify(article.title), existingSlugs);
   const relatedArticles = relatedFor({ category, articles, indexableSlugs });
   const html = renderArticlePage({ article, slug, date, relatedArticles, source });
@@ -436,7 +437,7 @@ async function callOpenAi({ articles, category, profile, topic, indexableSlugs }
         2,
       ),
       "",
-      "Length target: 750 to 950 words in the article body.",
+      "Length requirement: 800 to 950 words in the article body. Each paragraph should be specific and developed, not a short note.",
       "Existing cornerstone samples for style reference:",
       sourceArticles.join("\n\n---\n\n"),
     ].join("\n"),
@@ -612,6 +613,38 @@ function normalizeReflection(reflection) {
     heading: cleanText(reflection.heading || "Reflection for teams"),
     paragraphs,
   };
+}
+
+function ensureMinimumLength(article, { category, profile, topic }) {
+  if (articleWordCount(article) >= 650) return;
+
+  const existingHeadings = new Set(article.sections.map((section) => section.heading.toLowerCase()));
+  if (!existingHeadings.has("how to use this in professional development")) {
+    article.sections.push({
+      heading: "How to use this in professional development",
+      paragraphs: [
+        `For ${profile.audience}, this topic works best when it is tied to one recognizable moment instead of discussed as a broad ideal. A facilitator can ask the group where ${topic.focus} shows up during a shift, class, huddle, simulation, or leadership check-in, then listen for the specific behaviors that make the issue easier or harder to address.`,
+        `The next step is to choose one small practice the group can test. That might be a clearer question, a more direct phrase, a brief debrief prompt, a preceptor coaching cue, or a leader follow-up habit. The point is to move from agreement to behavior, because behavior is what teams can observe, repeat, and improve.`,
+        `This keeps the conversation grounded in ${category.toLowerCase()} without turning it into blame. Nurses and learners usually know where the pressure lives. A useful professional-development conversation gives them language for that pressure and a practical way to respond before the same pattern becomes normal.`,
+      ],
+    });
+  }
+
+  if (articleWordCount(article) >= 650) return;
+
+  article.reflection.paragraphs.push(
+    `A strong closing question for the team is simple: what is one part of this pattern we can make easier to notice this week? When the answer is specific, the discussion becomes more than reflection. It becomes a small act of clinical leadership.`,
+  );
+
+  if (articleWordCount(article) >= 650) return;
+
+  article.sections.push({
+    heading: "What leaders should carry forward",
+    paragraphs: [
+      `Leaders do not need to turn every daily note into a new initiative. They do need to notice which ideas keep returning across staff comments, student questions, debriefs, and patient-care friction. Repetition is information. When the same concern keeps surfacing, the system is offering a place to learn.`,
+      `A practical response is to name the pattern, pick one next action, and report back. That visible follow-through is often what helps teams believe that speaking clearly is worth the effort.`,
+    ],
+  });
 }
 
 function renderArticlePage({ article, slug, date, relatedArticles, source }) {
