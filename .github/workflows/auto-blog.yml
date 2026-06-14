@@ -52,6 +52,9 @@ jobs:
           fi
           node scripts/auto-blog.mjs "${FLAGS[@]}"
 
+      - name: Validate generated site
+        run: npm run check
+
       - name: Commit generated post
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry_run != true }}
         run: |

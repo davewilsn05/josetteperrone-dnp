@@ -3,7 +3,16 @@ import path from "node:path";
 
 const root = process.cwd();
 const baseUrl = "https://josetteperrone.com";
-const today = "2026-05-28";
+const dateFlagIndex = process.argv.indexOf("--date");
+const inlineDate = process.argv.find((arg) => arg.startsWith("--date="))?.split("=").slice(1).join("=");
+const explicitDate = inlineDate || (dateFlagIndex >= 0 ? process.argv[dateFlagIndex + 1] : "");
+
+if (explicitDate && !/^\d{4}-\d{2}-\d{2}$/.test(explicitDate)) {
+  console.error("Use --date YYYY-MM-DD when overriding the generated lastmod date.");
+  process.exit(1);
+}
+
+const today = explicitDate || new Date().toISOString().slice(0, 10);
 const articles = JSON.parse(fs.readFileSync(path.join(root, "blog", "articles.json"), "utf8"));
 const editorialIndex = JSON.parse(fs.readFileSync(path.join(root, "blog", "editorial-index.json"), "utf8"));
 const indexableArticleSlugs = new Set(editorialIndex.indexableArticleSlugs);
@@ -15,6 +24,42 @@ const escapeHtml = (value) =>
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+
+const optimizedImageWidths = [640, 960, 1280];
+const speakerImageMeta = {
+  "/assets/speaker/clinical-leadership-portrait.png": { width: 1672, height: 941 },
+  "/assets/speaker/clinical-team-corridor.png": { width: 1672, height: 941 },
+  "/assets/speaker/conference-lobby-conversation.png": { width: 1672, height: 941 },
+  "/assets/speaker/nurse-educator-workshop.png": { width: 1448, height: 1086 },
+  "/assets/speaker/panel-stage-magenta-blazer.png": { width: 1672, height: 941 },
+  "/assets/speaker/small-venue-red-blazer.png": { width: 1672, height: 941 },
+};
+
+function optimizedSrcset(src) {
+  const basename = path.posix.basename(src, ".png");
+  return optimizedImageWidths.map((width) => `/assets/speaker/optimized/${basename}-${width}.webp ${width}w`).join(", ");
+}
+
+function responsiveImage({ src, alt, sizes, dataParallaxSpeed, imagePosition, loading, fetchpriority }) {
+  const meta = speakerImageMeta[src] || { width: 1672, height: 941 };
+  const attrs = [
+    `src="${escapeHtml(src)}"`,
+    `alt="${escapeHtml(alt)}"`,
+    `width="${meta.width}"`,
+    `height="${meta.height}"`,
+    'decoding="async"',
+  ];
+
+  if (loading) attrs.push(`loading="${escapeHtml(loading)}"`);
+  if (fetchpriority) attrs.push(`fetchpriority="${escapeHtml(fetchpriority)}"`);
+  if (dataParallaxSpeed) attrs.push(`data-parallax-speed="${escapeHtml(dataParallaxSpeed)}"`);
+  if (imagePosition) attrs.push(`style="object-position: ${escapeHtml(imagePosition)}"`);
+
+  return `<picture>
+            <source type="image/webp" srcset="${optimizedSrcset(src)}" sizes="${escapeHtml(sizes)}" />
+            <img ${attrs.join(" ")} />
+          </picture>`;
+}
 
 const byCategory = articles.reduce((map, article) => {
   if (!map.has(article.category)) map.set(article.category, []);
@@ -514,19 +559,19 @@ function renderPage(page) {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=20260528-speaker-seo" />
+    <link rel="stylesheet" href="/styles.css?v=20260614-production-fixes" />
     <script type="application/ld+json">${JSON.stringify(schemaFor(page), null, 2)}</script>
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="/" aria-label="Josette Perrone home">
+      <a class="brand" href="/">
         <span class="brand-mark">JP</span>
         <span><strong>Josette Perrone</strong><small>DNP, FNP-C, RN</small></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span></span><span></span><span></span><span class="sr-only">Menu</span>
       </button>
-      <nav class="site-nav" id="site-nav" data-nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="Primary">
         <a href="/healthcare-speaker">Healthcare Speaker</a>
         <a href="/nursing-speaker">Nursing Speaker</a>
         <a href="/keynotes-workshops">Topics</a>
@@ -539,7 +584,14 @@ function renderPage(page) {
     <main>
       <section class="hero section chevron-section">
         <aside class="hero-visual parallax-frame" aria-label="${escapeHtml(page.eyebrow)}">
-          <img src="${escapeHtml(page.image)}" alt="Josette Perrone healthcare speaker" data-parallax-speed="0.12"${page.imagePosition ? ` style="object-position: ${escapeHtml(page.imagePosition)}"` : ""} />
+          ${responsiveImage({
+            src: page.image,
+            alt: "Josette Perrone healthcare speaker",
+            sizes: "(max-width: 700px) 100vw, 1180px",
+            dataParallaxSpeed: "0.12",
+            imagePosition: page.imagePosition,
+            fetchpriority: "high",
+          })}
         </aside>
         <div class="hero-copy">
           <p class="eyebrow">${escapeHtml(page.eyebrow)}</p>
@@ -598,7 +650,12 @@ function renderPage(page) {
           <a class="button primary" href="/#booking">Start a Booking Inquiry</a>
         </div>
         <figure class="image-tile blog-preview-image parallax-frame">
-          <img src="/assets/speaker/conference-lobby-conversation.png" alt="Josette Perrone in a professional conference conversation" />
+          ${responsiveImage({
+            src: "/assets/speaker/conference-lobby-conversation.png",
+            alt: "Josette Perrone in a professional conference conversation",
+            sizes: "(max-width: 700px) calc(100vw - 36px), 520px",
+            loading: "lazy",
+          })}
         </figure>
       </section>
     </main>

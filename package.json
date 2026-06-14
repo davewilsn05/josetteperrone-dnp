@@ -4,6 +4,7 @@
   "scripts": {
     "auto-blog:dry-run": "node scripts/auto-blog.mjs --dry-run --no-ai",
     "auto-blog:publish": "node scripts/auto-blog.mjs --publish --require-ai",
-    "auto-blog:publish:fallback": "node scripts/auto-blog.mjs --publish --no-ai"
+    "auto-blog:publish:fallback": "node scripts/auto-blog.mjs --publish --no-ai",
+    "check": "node scripts/validate-site.mjs"
   }
 }

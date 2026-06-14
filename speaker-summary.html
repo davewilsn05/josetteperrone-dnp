@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=20260528-speaker-seo" />
+    <link rel="stylesheet" href="/styles.css?v=20260614-production-fixes" />
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -138,14 +138,14 @@
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="/" aria-label="Josette Perrone home">
+      <a class="brand" href="/">
         <span class="brand-mark">JP</span>
         <span><strong>Josette Perrone</strong><small>DNP, FNP-C, RN</small></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span></span><span></span><span></span><span class="sr-only">Menu</span>
       </button>
-      <nav class="site-nav" id="site-nav" data-nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="Primary">
         <a href="/healthcare-speaker">Healthcare Speaker</a>
         <a href="/nursing-speaker">Nursing Speaker</a>
         <a href="/keynotes-workshops">Topics</a>
@@ -158,7 +158,10 @@
     <main>
       <section class="hero section chevron-section">
         <aside class="hero-visual parallax-frame" aria-label="Speaker summary">
-          <img src="/assets/speaker/clinical-leadership-portrait.png" alt="Josette Perrone healthcare speaker" data-parallax-speed="0.12" />
+          <picture>
+            <source type="image/webp" srcset="/assets/speaker/optimized/clinical-leadership-portrait-640.webp 640w, /assets/speaker/optimized/clinical-leadership-portrait-960.webp 960w, /assets/speaker/optimized/clinical-leadership-portrait-1280.webp 1280w" sizes="(max-width: 700px) 100vw, 1180px" />
+            <img src="/assets/speaker/clinical-leadership-portrait.png" alt="Josette Perrone healthcare speaker" width="1672" height="941" decoding="async" fetchpriority="high" data-parallax-speed="0.12" />
+          </picture>
         </aside>
         <div class="hero-copy">
           <p class="eyebrow">Speaker summary</p>
@@ -261,44 +264,14 @@
             <p>moving from self-blame to systems-aware resilience.</p>
           </article>
           <article class="topic-card">
-            <span class="topic-number">Burnout and Resilience</span>
-            <h3><a href="/blog/why-emergency-nurses-need-recovery-rituals">Why Emergency Nurses Need Recovery Rituals</a></h3>
-            <p>simple transitions after high-intensity care.</p>
+            <span class="topic-number">Clinical Communication</span>
+            <h3><a href="/blog/clear-communication-is-a-clinical-skill">Clear Communication Is a Clinical Skill</a></h3>
+            <p>why words shape safety and trust.</p>
           </article>
           <article class="topic-card">
-            <span class="topic-number">Burnout and Resilience</span>
-            <h3><a href="/blog/moral-distress-and-the-nurse-who-keeps-showing-up">Moral Distress and the Nurse Who Keeps Showing Up</a></h3>
-            <p>naming the burden of knowing what patients need.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Burnout and Resilience</span>
-            <h3><a href="/blog/the-difference-between-resilience-and-endurance">The Difference Between Resilience and Endurance</a></h3>
-            <p>why coping is not the same as being unsupported.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Burnout and Resilience</span>
-            <h3><a href="/blog/burnout-prevention-starts-with-better-listening">Burnout Prevention Starts with Better Listening</a></h3>
-            <p>what leaders can hear before staff disengage.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Burnout and Resilience</span>
-            <h3><a href="/blog/using-micro-recovery-during-long-shifts">Using Micro-Recovery During Long Shifts</a></h3>
-            <p>small pauses that protect attention and regulation.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Burnout and Resilience</span>
-            <h3><a href="/blog/why-nurses-need-permission-to-be-human">Why Nurses Need Permission to Be Human</a></h3>
-            <p>normalizing emotion after difficult clinical moments.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Burnout and Resilience</span>
-            <h3><a href="/blog/compassion-fatigue-in-high-acuity-care">Compassion Fatigue in High-Acuity Care</a></h3>
-            <p>recognizing signs before empathy becomes depletion.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Burnout and Resilience</span>
-            <h3><a href="/blog/resilience-metrics-should-lead-to-action">Resilience Metrics Should Lead to Action</a></h3>
-            <p>using data to change support systems.</p>
+            <span class="topic-number">Nursing Education</span>
+            <h3><a href="/blog/why-case-studies-still-work">Why Case Studies Still Work</a></h3>
+            <p>bridging theory and clinical judgment.</p>
           </article>
         </div>
       </section>
@@ -310,7 +283,10 @@
           <a class="button primary" href="/#booking">Start a Booking Inquiry</a>
         </div>
         <figure class="image-tile blog-preview-image parallax-frame">
-          <img src="/assets/speaker/conference-lobby-conversation.png" alt="Josette Perrone in a professional conference conversation" />
+          <picture>
+            <source type="image/webp" srcset="/assets/speaker/optimized/conference-lobby-conversation-640.webp 640w, /assets/speaker/optimized/conference-lobby-conversation-960.webp 960w, /assets/speaker/optimized/conference-lobby-conversation-1280.webp 1280w" sizes="(max-width: 700px) calc(100vw - 36px), 520px" />
+            <img src="/assets/speaker/conference-lobby-conversation.png" alt="Josette Perrone in a professional conference conversation" width="1672" height="941" decoding="async" loading="lazy" />
+          </picture>
         </figure>
       </section>
     </main>

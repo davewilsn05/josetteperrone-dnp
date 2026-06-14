@@ -19,6 +19,7 @@ const bookingForm = document.querySelector("[data-booking-form]");
 const bookingStatus = document.querySelector("[data-booking-status]");
 const parallaxImages = Array.from(document.querySelectorAll("[data-parallax-speed]"));
 let publicConfigPromise;
+let recaptchaScriptPromise;
 
 const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
 
@@ -69,8 +70,31 @@ const getPublicConfig = async () => {
   return publicConfigPromise;
 };
 
-const getRecaptchaToken = async () => {
+const loadRecaptchaScript = async () => {
   const { recaptchaSiteKey } = await getPublicConfig();
+  if (!recaptchaSiteKey || window.grecaptcha) {
+    return recaptchaSiteKey || "";
+  }
+
+  if (!recaptchaScriptPromise) {
+    recaptchaScriptPromise = new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.async = true;
+      script.defer = true;
+      script.dataset.recaptcha = "true";
+      script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(recaptchaSiteKey)}`;
+      script.onload = () => resolve();
+      script.onerror = () => resolve();
+      document.head.appendChild(script);
+    });
+  }
+
+  await recaptchaScriptPromise;
+  return recaptchaSiteKey;
+};
+
+const getRecaptchaToken = async () => {
+  const recaptchaSiteKey = await loadRecaptchaScript();
   if (!recaptchaSiteKey || !window.grecaptcha) {
     return "";
   }
@@ -85,18 +109,24 @@ const getRecaptchaToken = async () => {
   });
 };
 
-getPublicConfig().then(({ recaptchaSiteKey }) => {
-  if (!recaptchaSiteKey || document.querySelector("script[data-recaptcha]")) {
-    return;
+loadRecaptchaScript();
+
+const bookingErrorMessage = async (response) => {
+  let error = "";
+  try {
+    const data = await response.json();
+    error = typeof data.error === "string" ? data.error : "";
+  } catch {
+    error = "";
   }
 
-  const script = document.createElement("script");
-  script.async = true;
-  script.defer = true;
-  script.dataset.recaptcha = "true";
-  script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(recaptchaSiteKey)}`;
-  document.head.appendChild(script);
-});
+  if (response.status === 400) return error || "Please check the form details and try again.";
+  if (response.status === 403) return "We couldn't verify this request. Please refresh the page and try again.";
+  if (response.status === 502 || response.status === 503) {
+    return "Booking delivery is temporarily unavailable. Please try again soon.";
+  }
+  return "We couldn't submit the inquiry. Please try again.";
+};
 
 if (parallaxImages.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   let ticking = false;
@@ -163,9 +193,7 @@ if (bookingForm instanceof HTMLFormElement && bookingStatus) {
           tracking: getTrackingContext(),
         }),
       });
-      bookingStatus.textContent = response.ok
-        ? "Thank you. Your inquiry was received."
-        : "Booking requests are being configured. Please try again soon.";
+      bookingStatus.textContent = response.ok ? "Thank you. Your inquiry was received." : await bookingErrorMessage(response);
       bookingStatus.hidden = false;
       if (response.ok) {
         identifyBookingLead(formData);
@@ -185,7 +213,7 @@ if (bookingForm instanceof HTMLFormElement && bookingStatus) {
       track("booking_form_failure", {
         status: "network_error",
       });
-      bookingStatus.textContent = "Booking requests are being configured. Please try again soon.";
+      bookingStatus.textContent = "Network error. Please check your connection and try again.";
       bookingStatus.hidden = false;
     } finally {
       if (submitButton instanceof HTMLButtonElement) {

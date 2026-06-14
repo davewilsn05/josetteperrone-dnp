@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css?v=20260528-speaker-seo" />
+    <link rel="stylesheet" href="/styles.css?v=20260614-production-fixes" />
     <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
@@ -138,14 +138,14 @@
   </head>
   <body>
     <header class="site-header" data-header>
-      <a class="brand" href="/" aria-label="Josette Perrone home">
+      <a class="brand" href="/">
         <span class="brand-mark">JP</span>
         <span><strong>Josette Perrone</strong><small>DNP, FNP-C, RN</small></span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
         <span></span><span></span><span></span><span class="sr-only">Menu</span>
       </button>
-      <nav class="site-nav" id="site-nav" data-nav>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="Primary">
         <a href="/healthcare-speaker">Healthcare Speaker</a>
         <a href="/nursing-speaker">Nursing Speaker</a>
         <a href="/keynotes-workshops">Topics</a>
@@ -158,7 +158,10 @@
     <main>
       <section class="hero section chevron-section">
         <aside class="hero-visual parallax-frame" aria-label="Topic: emergency and trauma nursing">
-          <img src="/assets/speaker/clinical-leadership-portrait.png" alt="Josette Perrone healthcare speaker" data-parallax-speed="0.12" />
+          <picture>
+            <source type="image/webp" srcset="/assets/speaker/optimized/clinical-leadership-portrait-640.webp 640w, /assets/speaker/optimized/clinical-leadership-portrait-960.webp 960w, /assets/speaker/optimized/clinical-leadership-portrait-1280.webp 1280w" sizes="(max-width: 700px) 100vw, 1180px" />
+            <img src="/assets/speaker/clinical-leadership-portrait.png" alt="Josette Perrone healthcare speaker" width="1672" height="941" decoding="async" fetchpriority="high" data-parallax-speed="0.12" />
+          </picture>
         </aside>
         <div class="hero-copy">
           <p class="eyebrow">Topic: emergency and trauma nursing</p>
@@ -260,46 +263,6 @@
             <h3><a href="/blog/what-emergency-nursing-teaches-about-priorities">What Emergency Nursing Teaches About Priorities</a></h3>
             <p>rapid assessment, stabilization, and flexible thinking.</p>
           </article>
-          <article class="topic-card">
-            <span class="topic-number">Emergency and Trauma Nursing</span>
-            <h3><a href="/blog/the-first-five-minutes-of-a-high-acuity-situation">The First Five Minutes of a High-Acuity Situation</a></h3>
-            <p>role clarity and controlled urgency.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Emergency and Trauma Nursing</span>
-            <h3><a href="/blog/why-trauma-teams-depend-on-communication-discipline">Why Trauma Teams Depend on Communication Discipline</a></h3>
-            <p>closed-loop language and shared mental models.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Emergency and Trauma Nursing</span>
-            <h3><a href="/blog/caring-for-the-patient-and-the-room-at-the-same-time">Caring for the Patient and the Room at the Same Time</a></h3>
-            <p>situational awareness in crowded care spaces.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Emergency and Trauma Nursing</span>
-            <h3><a href="/blog/the-teaching-power-of-emergency-nursing-stories">The Teaching Power of Emergency Nursing Stories</a></h3>
-            <p>turning clinical experiences into learning without drama.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Emergency and Trauma Nursing</span>
-            <h3><a href="/blog/how-ed-nurses-build-clinical-pattern-recognition">How ED Nurses Build Clinical Pattern Recognition</a></h3>
-            <p>experience, reflection, and guided precepting.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Emergency and Trauma Nursing</span>
-            <h3><a href="/blog/the-quiet-skills-behind-fast-nursing-decisions">The Quiet Skills Behind Fast Nursing Decisions</a></h3>
-            <p>assessment, anticipation, and team trust.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Emergency and Trauma Nursing</span>
-            <h3><a href="/blog/managing-cognitive-load-in-emergency-care">Managing Cognitive Load in Emergency Care</a></h3>
-            <p>reducing noise while preserving urgency.</p>
-          </article>
-          <article class="topic-card">
-            <span class="topic-number">Emergency and Trauma Nursing</span>
-            <h3><a href="/blog/why-protocols-still-need-human-judgment">Why Protocols Still Need Human Judgment</a></h3>
-            <p>using standards without losing clinical reasoning.</p>
-          </article>
         </div>
       </section>
       <section class="section blog-preview-section chevron-section">
@@ -310,7 +273,10 @@
           <a class="button primary" href="/#booking">Start a Booking Inquiry</a>
         </div>
         <figure class="image-tile blog-preview-image parallax-frame">
-          <img src="/assets/speaker/conference-lobby-conversation.png" alt="Josette Perrone in a professional conference conversation" />
+          <picture>
+            <source type="image/webp" srcset="/assets/speaker/optimized/conference-lobby-conversation-640.webp 640w, /assets/speaker/optimized/conference-lobby-conversation-960.webp 960w, /assets/speaker/optimized/conference-lobby-conversation-1280.webp 1280w" sizes="(max-width: 700px) calc(100vw - 36px), 520px" />
+            <img src="/assets/speaker/conference-lobby-conversation.png" alt="Josette Perrone in a professional conference conversation" width="1672" height="941" decoding="async" loading="lazy" />
+          </picture>
         </figure>
       </section>
     </main>

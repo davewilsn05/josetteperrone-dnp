@@ -73,7 +73,7 @@ const faviconLinks = (prefix = "") => `    <link rel="icon" href="${prefix}/asse
     <link rel="icon" href="${prefix}/assets/brand/favicon-32.png" sizes="32x32" type="image/png" />
     <link rel="apple-touch-icon" href="${prefix}/assets/brand/apple-touch-icon.png" />`;
 
-const fullBlogNav = `<nav class="site-nav"><a href="/healthcare-speaker">Healthcare Speaker</a><a href="/nursing-speaker">Nursing Speaker</a><a href="/keynotes-workshops">Topics</a><a href="/#experience">Experience</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/#booking">Booking</a></nav>`;
+const fullBlogNav = `<nav class="site-nav" aria-label="Primary"><a href="/healthcare-speaker">Healthcare Speaker</a><a href="/nursing-speaker">Nursing Speaker</a><a href="/keynotes-workshops">Topics</a><a href="/#experience">Experience</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/#booking">Booking</a></nav>`;
 
 const ensureFavicons = (html, prefix = "") => {
   if (html.includes('rel="icon"') || html.includes("rel='icon'")) return html;
@@ -260,7 +260,7 @@ ${faviconLinks("..")}
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/#top" aria-label="Josette Perrone home"><span class="brand-mark">JP</span><span><strong>Josette Perrone</strong><small>DNP, FNP-C, RN</small></span></a>
+      <a class="brand" href="/#top"><span class="brand-mark">JP</span><span><strong>Josette Perrone</strong><small>DNP, FNP-C, RN</small></span></a>
       ${fullBlogNav}
     </header>
     <main>
