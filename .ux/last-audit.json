@@ -1,0 +1,67 @@
+{
+  "command": "ux-audit",
+  "timestamp": "2026-06-14T17:00:43Z",
+  "surface": "https://josetteperrone.com/blog",
+  "findings": [
+    {
+      "lens": "FRAME",
+      "severity": "High",
+      "title": "Daily publishing is not framed as current activity",
+      "principle": "Lean UX observable outcome",
+      "evidence": "The auto-generated field notes existed, but the main blog page only surfaced them deep in the page.",
+      "fix": "Add an above-the-fold path and preview area for the latest generated notes."
+    },
+    {
+      "lens": "DISCOVER",
+      "severity": "Critical",
+      "title": "Blog-specific styling fails on the clean URL",
+      "principle": "Norman discoverability and signifiers",
+      "evidence": "The /blog page resolved blog.css as /blog.css, leaving the page visually unstyled in the clean URL route.",
+      "fix": "Use absolute blog stylesheet URLs and validate page assets using clean URL resolution."
+    },
+    {
+      "lens": "SCAN",
+      "severity": "High",
+      "title": "Latest posts are buried below primary scan depth",
+      "principle": "Krug self-evidence and information hierarchy",
+      "evidence": "The daily notes path appeared far below the hero and featured article grid.",
+      "fix": "Move a three-post daily preview directly below the hero."
+    },
+    {
+      "lens": "ACT",
+      "severity": "Medium",
+      "title": "The hero lacks clear pathing for different reader intents",
+      "principle": "Hick's law and visible affordances",
+      "evidence": "Readers had no immediate choice between latest notes and cornerstone articles.",
+      "fix": "Add two hero actions: Latest Daily Notes and Cornerstone Articles."
+    },
+    {
+      "lens": "READ",
+      "severity": "Medium",
+      "title": "Daily notes need clearer public-facing labeling",
+      "principle": "Copy clarity and outcome-oriented CTAs",
+      "evidence": "The archive label did not clearly explain why generated notes were separate from cornerstone articles.",
+      "fix": "Label the preview as generated reflections for review, reuse, and professional-development prompts."
+    },
+    {
+      "lens": "RECOVER",
+      "severity": "High",
+      "title": "Validation did not catch clean URL asset failures",
+      "principle": "Norman error prevention",
+      "evidence": "The broken stylesheet path passed existing site checks.",
+      "fix": "Resolve internal assets against each page's public clean URL during validation."
+    }
+  ],
+  "severity_counts": {
+    "critical": 1,
+    "high": 3,
+    "medium": 2,
+    "cosmetic": 0
+  },
+  "dominant_lens": "DISCOVER",
+  "strategic_moves": [
+    "Treat /blog as a live publishing surface, not only a static article index.",
+    "Keep generated posts visible through an automated preview block on the blog index.",
+    "Guard clean URL asset resolution in CI so styling failures cannot ship silently."
+  ]
+}

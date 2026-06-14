@@ -183,7 +183,7 @@ blogIndex = blogIndex.replace(/<nav class="site-nav">[\s\S]*?<\/nav>/, fullBlogN
 blogIndex = normalizeBlogLinks(blogIndex);
 blogIndex = blogIndex.replace(/<a href="#[^"]+"><span>[\s\S]*?<\/strong><\/a>(\s*<a href="#[^"]+"><span>[\s\S]*?<\/strong><\/a>)*/m, categoryNav);
 blogIndex = blogIndex.replace(/<link rel="stylesheet" href="\.\.\/styles\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="../styles.css?v=20260524-posthog-seo" />');
-blogIndex = blogIndex.replace(/<link rel="stylesheet" href="blog\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="blog.css?v=20260524-topic-silos" />');
+blogIndex = blogIndex.replace(/<link rel="stylesheet" href="blog\.css\?v=[^"]+" \/>/, '<link rel="stylesheet" href="/blog/blog.css?v=20260614-blog-audit" />');
 fs.writeFileSync(path.join(blogDir, "index.html"), blogIndex);
 
 for (const category of categories) {
@@ -235,7 +235,7 @@ ${faviconLinks("..")}
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css?v=20260524-posthog-seo" />
-    <link rel="stylesheet" href="blog.css?v=20260524-topic-silos" />
+    <link rel="stylesheet" href="/blog/blog.css?v=20260614-blog-audit" />
     <script type="application/ld+json">{
       "@context": "https://schema.org",
       "@graph": [

@@ -109,6 +109,14 @@ function fileForInternalPath(routePath) {
   return routeCandidates(routePath).find((candidate) => fs.existsSync(candidate));
 }
 
+function publicPathForFile(file) {
+  const normalized = relative(file).split(path.sep).join("/");
+  if (normalized === "index.html") return "/";
+  if (normalized.endsWith("/index.html")) return `/${normalized.slice(0, -"index.html".length - 1)}`;
+  if (normalized.endsWith(".html")) return `/${normalized.slice(0, -".html".length)}`;
+  return `/${normalized}`;
+}
+
 function normalizeHref(href) {
   if (!href || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return null;
   if (href.startsWith("//")) return null;
@@ -122,19 +130,29 @@ function normalizeHref(href) {
   return href;
 }
 
+function resolveInternalUrl(file, rawValue) {
+  const normalized = normalizeHref(rawValue);
+  if (!normalized) return null;
+
+  try {
+    const pageUrl = `https://${siteHost}${publicPathForFile(file)}`;
+    const resolved = new URL(normalized, pageUrl);
+    if (resolved.hostname !== siteHost) return null;
+    return resolved;
+  } catch {
+    return null;
+  }
+}
+
 function validateInternalLinks(file, html) {
   for (const match of html.matchAll(/\bhref\s*=\s*("([^"]*)"|'([^']*)')/gi)) {
-    const rawHref = normalizeHref(match[2] || match[3] || "");
-    if (!rawHref) continue;
+    const rawHref = match[2] || match[3] || "";
+    const resolvedUrl = resolveInternalUrl(file, rawHref);
+    if (!resolvedUrl) continue;
 
     const line = lineFor(html, match.index || 0);
-    const [withoutHash, rawFragment = ""] = rawHref.split("#");
-    const routeOnly = withoutHash.split("?")[0];
-    const targetRoute = routeOnly
-      ? routeOnly.startsWith("/")
-        ? routeOnly
-        : path.posix.normalize(path.posix.join("/", path.posix.dirname(relative(file)), routeOnly))
-      : `/${relative(file)}`;
+    const rawFragment = resolvedUrl.hash ? resolvedUrl.hash.slice(1) : "";
+    const targetRoute = resolvedUrl.pathname;
     const targetFile = fileForInternalPath(targetRoute);
 
     if (!targetFile) {
@@ -149,6 +167,32 @@ function validateInternalLinks(file, html) {
       if (!hasTarget) {
         addIssue(file, line, `fragment target does not exist: ${rawHref}`);
       }
+    }
+  }
+}
+
+function validatePageAssets(file, html) {
+  for (const match of html.matchAll(/<link\b[^>]*rel\s*=\s*["'][^"']*stylesheet[^"']*["'][^>]*>/gi)) {
+    const tag = match[0];
+    const href = attrValue(tag, "href");
+    const resolvedUrl = resolveInternalUrl(file, href);
+    if (!resolvedUrl) continue;
+
+    const targetFile = fileForInternalPath(resolvedUrl.pathname);
+    if (!targetFile) {
+      addIssue(file, lineFor(html, match.index || 0), `stylesheet target does not exist: ${href}`);
+    }
+  }
+
+  for (const match of html.matchAll(/<script\b[^>]*\bsrc\s*=\s*["'][^"']+["'][^>]*>/gi)) {
+    const tag = match[0];
+    const src = attrValue(tag, "src");
+    const resolvedUrl = resolveInternalUrl(file, src);
+    if (!resolvedUrl) continue;
+
+    const targetFile = fileForInternalPath(resolvedUrl.pathname);
+    if (!targetFile) {
+      addIssue(file, lineFor(html, match.index || 0), `script target does not exist: ${src}`);
     }
   }
 }
@@ -197,6 +241,7 @@ for (const file of htmlFiles) {
   validateHtmlImages(file, html);
   validateRawAmpersands(file, html);
   validateInternalLinks(file, html);
+  validatePageAssets(file, html);
 }
 
 validateSitemap();

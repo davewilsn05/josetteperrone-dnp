@@ -20,6 +20,7 @@ const source = args.source || "auto-blog";
 const articlesPath = path.join(blogDir, "articles.json");
 const editorialIndexPath = path.join(blogDir, "editorial-index.json");
 const feedPath = path.join(blogDir, "daily-field-notes.html");
+const blogIndexPath = path.join(blogDir, "index.html");
 const logPath = path.join(blogDir, "auto-blog-log.json");
 
 const categoryProfiles = {
@@ -301,6 +302,7 @@ async function main() {
   const updatedLog = [logEntry, ...readLog(logPath).filter((item) => item.slug !== slug)].slice(0, 90);
   fs.writeFileSync(logPath, `${JSON.stringify(updatedLog, null, 2)}\n`);
   fs.writeFileSync(feedPath, renderDailyFeed(updatedLog));
+  updateBlogIndexDailyPreview(updatedLog);
 
   console.log(`Generated /blog/${slug}`);
   console.log(`Robots: ${logEntry.robots}`);
@@ -744,7 +746,7 @@ function renderArticlePage({ article, slug, date, relatedArticles, source }) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css?v=20260524-banner-hero" />
-    <link rel="stylesheet" href="blog.css?v=20260524-editorial" />
+    <link rel="stylesheet" href="/blog/blog.css?v=20260614-blog-audit" />
     <script type="application/ld+json">${JSON.stringify(schema, null, 2).replace(/</g, "\\u003c")}</script>
   </head>
   <body>
@@ -850,7 +852,7 @@ function renderDailyFeed(logEntries) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css?v=20260524-posthog-seo" />
-    <link rel="stylesheet" href="blog.css?v=20260524-topic-silos" />
+    <link rel="stylesheet" href="/blog/blog.css?v=20260614-blog-audit" />
   </head>
   <body>
     <header class="site-header">
@@ -893,6 +895,38 @@ ${cards || "              <p>No daily field notes have been generated yet.</p>"}
   </body>
 </html>
 `;
+}
+
+function renderDailyPreview(logEntries) {
+  return logEntries
+    .slice(0, 3)
+    .map(
+      (entry) => `            <article class="compact-article">
+              <time datetime="${entry.date}">${dateDisplay(entry.date)}</time>
+              <div>
+                <p>${escapeHtml(entry.category)}</p>
+                <h3><a href="/blog/${entry.slug}">${escapeHtml(entry.title)}</a></h3>
+                <span>${escapeHtml(entry.focus)}.</span>
+              </div>
+            </article>`,
+    )
+    .join("\n");
+}
+
+function updateBlogIndexDailyPreview(logEntries) {
+  const html = fs.readFileSync(blogIndexPath, "utf8");
+  const start = "          <!-- auto-blog:daily-preview:start -->";
+  const end = "          <!-- auto-blog:daily-preview:end -->";
+  const startIndex = html.indexOf(start);
+  const endIndex = html.indexOf(end);
+
+  if (startIndex === -1 || endIndex === -1 || endIndex <= startIndex) {
+    throw new Error("Blog index daily preview markers are missing.");
+  }
+
+  const preview = renderDailyPreview(logEntries) || "            <p>No daily field notes have been generated yet.</p>";
+  const nextHtml = `${html.slice(0, startIndex + start.length)}\n${preview}\n${html.slice(endIndex)}`;
+  fs.writeFileSync(blogIndexPath, nextHtml);
 }
 
 function validateArticle({ article, html, slug, existingSlugs }) {
