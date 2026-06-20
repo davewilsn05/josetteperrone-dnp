@@ -1,8 +1,10 @@
 (function () {
   const consentKey = "jp_analytics_consent";
   const configUrl = "/api/posthog-config";
+  const googleMeasurementId = "G-FWPEZZXE8S";
   const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
   let posthogReady = false;
+  let googleTagReady = false;
   let bookingStarted = false;
 
   const getConsent = () => {
@@ -56,13 +58,77 @@
     };
   };
 
+  const getGoogleEventParams = (properties) => {
+    const { path, url, title, referrer, ...customProperties } = properties;
+    return {
+      page_path: path,
+      page_location: url,
+      page_title: title,
+      page_referrer: referrer,
+      ...customProperties,
+    };
+  };
+
+  const captureGoogle = (eventName, properties) => {
+    if (!googleTagReady || !window.gtag) return;
+    window.gtag("event", eventName, getGoogleEventParams(properties));
+  };
+
+  const capturePostHog = (eventName, properties) => {
+    if (!posthogReady || !window.posthog) return;
+    window.posthog.capture(eventName, properties);
+  };
+
   const capture = (eventName, properties = {}) => {
-    if (!eventName || !posthogReady || !window.posthog) return;
-    window.posthog.capture(eventName, {
+    if (!eventName) return;
+    const eventProperties = {
       ...getTrackingContext(),
       ...properties,
-    });
+    };
+
+    capturePostHog(eventName, eventProperties);
+    captureGoogle(eventName, eventProperties);
   };
+
+  const loadGoogleTag = () =>
+    new Promise((resolve, reject) => {
+      if (!googleMeasurementId) {
+        resolve();
+        return;
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag =
+        window.gtag ||
+        function () {
+          window.dataLayer.push(arguments);
+        };
+
+      const existing = document.querySelector("script[data-google-tag-library]");
+      if (existing) {
+        googleTagReady = true;
+        captureGoogle("page_view", getTrackingContext());
+        resolve();
+        return;
+      }
+
+      window.gtag("js", new Date());
+      window.gtag("config", googleMeasurementId, {
+        send_page_view: false,
+      });
+
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(googleMeasurementId)}`;
+      script.dataset.googleTagLibrary = "true";
+      script.onload = () => {
+        googleTagReady = true;
+        captureGoogle("page_view", getTrackingContext());
+        resolve();
+      };
+      script.onerror = () => reject(new Error("Google tag failed to load"));
+      document.head.appendChild(script);
+    });
 
   const loadPostHog = ({ token, apiHost, projectId }) =>
     new Promise((resolve, reject) => {
@@ -95,7 +161,10 @@
           persistence: "localStorage+cookie",
           loaded: () => {
             posthogReady = true;
-            capture("page_view", { posthog_project_id: projectId });
+            capturePostHog("page_view", {
+              ...getTrackingContext(),
+              posthog_project_id: projectId,
+            });
             resolve();
           },
         });
@@ -104,9 +173,7 @@
       document.head.appendChild(script);
     });
 
-  const initAnalytics = async () => {
-    if (getConsent() !== "granted") return;
-
+  const initPostHog = async () => {
     try {
       const response = await fetch(configUrl, { cache: "no-store" });
       if (!response.ok) return;
@@ -116,6 +183,13 @@
     } catch {
       posthogReady = false;
     }
+  };
+
+  const initAnalytics = async () => {
+    if (getConsent() !== "granted") return;
+
+    const results = await Promise.allSettled([initPostHog(), loadGoogleTag()]);
+    if (results[1]?.status === "rejected") googleTagReady = false;
   };
 
   const showConsentBanner = () => {
