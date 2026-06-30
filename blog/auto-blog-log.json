@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-06-30",
+    "slug": "the-discipline-behind-calm-emergency-care",
+    "category": "Emergency and Trauma Nursing",
+    "title": "The Discipline Behind Calm Emergency Care",
+    "focus": "how preparation and tone shape team performance",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 712
+  },
+  {
     "date": "2026-06-29",
     "slug": "how-handoffs-lose-meaning-under-pressure",
     "category": "Clinical Communication",
