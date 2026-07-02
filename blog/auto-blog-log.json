@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-07-02",
+    "slug": "why-experienced-nurses-should-tell-better-stories",
+    "category": "Mentorship and Career Growth",
+    "title": "Why Experienced Nurses Should Tell Better Stories",
+    "focus": "using career stories to teach judgment and resilience",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 753
+  },
+  {
     "date": "2026-07-01",
     "slug": "why-safety-follow-through-builds-trust",
     "category": "Healthcare Worker Safety",
