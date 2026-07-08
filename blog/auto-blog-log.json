@@ -1,6 +1,17 @@
 [
   {
     "date": "2026-07-08",
+    "slug": "the-quiet-risk-of-always-working-around-the-problem",
+    "category": "Healthcare Worker Safety",
+    "title": "The Quiet Risk of Always Working Around the Problem",
+    "focus": "recognizing workarounds that should not become normal",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 722
+  },
+  {
+    "date": "2026-07-08",
     "slug": "how-trauma-nursing-teaches-operational-awareness",
     "category": "Emergency and Trauma Nursing",
     "title": "How Trauma Nursing Teaches Operational Awareness",
