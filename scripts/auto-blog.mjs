@@ -720,11 +720,11 @@ function renderArticlePage({ article, slug, date, relatedArticles, source }) {
     <meta name="author" content="Josette Perrone" />
     <meta name="robots" content="${robots}" />
     <meta name="auto-blog-source" content="${escapeHtml(source)}" />
-    <link rel="canonical" href="${canonical}" />
+    <link rel="canonical" href="${escapeHtml(canonical)}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="${escapeHtml(article.title)} | Josette Perrone Clinical Blog" />
     <meta property="og:description" content="${escapeHtml(description)}" />
-    <meta property="og:url" content="${canonical}" />
+    <meta property="og:url" content="${escapeHtml(canonical)}" />
     <meta property="og:image" content="${baseUrl}/assets/brand/og-josette-perrone-contrast.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -818,7 +818,7 @@ function renderDailyFeed(logEntries) {
               <time datetime="${entry.date}">${dateDisplay(entry.date)}</time>
               <div>
                 <p>${escapeHtml(entry.category)}</p>
-                <h3><a href="/blog/${entry.slug}">${escapeHtml(entry.title)}</a></h3>
+                <h3><a href="/blog/${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h3>
                 <span>${escapeHtml(entry.focus)}.</span>
               </div>
             </article>`,
@@ -905,7 +905,7 @@ function renderDailyPreview(logEntries) {
               <time datetime="${entry.date}">${dateDisplay(entry.date)}</time>
               <div>
                 <p>${escapeHtml(entry.category)}</p>
-                <h3><a href="/blog/${entry.slug}">${escapeHtml(entry.title)}</a></h3>
+                <h3><a href="/blog/${encodeURIComponent(entry.slug)}">${escapeHtml(entry.title)}</a></h3>
                 <span>${escapeHtml(entry.focus)}.</span>
               </div>
             </article>`,
@@ -1018,8 +1018,8 @@ function cleanText(value) {
 
 function stripTags(html) {
   return String(html)
-    .replace(/<script[\s\S]*?<\/script>/g, " ")
-    .replace(/<style[\s\S]*?<\/style>/g, " ")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ")
     .trim();

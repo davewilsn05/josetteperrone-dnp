@@ -118,7 +118,9 @@ function publicPathForFile(file) {
 }
 
 function normalizeHref(href) {
-  if (!href || href.startsWith("mailto:") || href.startsWith("tel:") || href.startsWith("javascript:")) return null;
+  if (!href) return null;
+  const scheme = href.match(/^([a-z][a-z\d+.-]*):/i)?.[1]?.toLowerCase();
+  if (scheme && scheme !== "http" && scheme !== "https") return null;
   if (href.startsWith("//")) return null;
 
   if (/^https?:\/\//i.test(href)) {
