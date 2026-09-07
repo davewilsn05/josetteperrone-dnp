@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-07",
+    "slug": "why-recovery-cannot-be-left-to-the-drive-home-6",
+    "category": "Burnout and Resilience",
+    "title": "Why Recovery Cannot Be Left to the Drive Home",
+    "focus": "making decompression part of the work system",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 723
+  },
+  {
     "date": "2026-09-06",
     "slug": "why-advanced-practice-still-needs-nursing-roots-20260906",
     "category": "Advanced Practice Nursing",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 666
-  },
-  {
-    "date": "2026-06-10",
-    "slug": "why-mentorship-needs-more-than-encouragement",
-    "category": "Mentorship and Career Growth",
-    "title": "Why Mentorship Needs More Than Encouragement",
-    "focus": "turning support into specific professional growth",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 717
   }
 ]
