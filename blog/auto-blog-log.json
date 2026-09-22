@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-22",
+    "slug": "why-advanced-practice-still-needs-nursing-roots-20260922",
+    "category": "Advanced Practice Nursing",
+    "title": "Why Advanced Practice Still Needs Nursing Roots 20260922",
+    "focus": "carrying bedside perspective into broader responsibility",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 679
+  },
+  {
     "date": "2026-09-21",
     "slug": "when-advocacy-begins-as-a-clarifying-question-7",
     "category": "Patient Advocacy",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 760
-  },
-  {
-    "date": "2026-06-25",
-    "slug": "how-educators-can-make-feedback-feel-usable",
-    "category": "Nursing Education",
-    "title": "How Educators Can Make Feedback Feel Usable",
-    "focus": "turning critique into a next action students can try",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 738
   }
 ]
