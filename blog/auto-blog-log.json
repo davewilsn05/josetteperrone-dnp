@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-24",
+    "slug": "why-clear-requests-protect-clinical-teams-6",
+    "category": "Clinical Communication",
+    "title": "Why Clear Requests Protect Clinical Teams",
+    "focus": "making needs visible before confusion grows",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 798
+  },
+  {
     "date": "2026-09-23",
     "slug": "why-recovery-cannot-be-left-to-the-drive-home-20260923",
     "category": "Burnout and Resilience",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 702
-  },
-  {
-    "date": "2026-06-27",
-    "slug": "why-doctoral-thinking-belongs-in-daily-practice",
-    "category": "Advanced Practice Nursing",
-    "title": "Why Doctoral Thinking Belongs in Daily Practice",
-    "focus": "connecting systems awareness to patient care",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 699
   }
 ]
