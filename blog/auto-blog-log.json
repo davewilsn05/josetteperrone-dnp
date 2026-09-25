@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-25",
+    "slug": "what-high-acuity-teams-need-before-the-room-gets-loud-10",
+    "category": "Emergency and Trauma Nursing",
+    "title": "What High-Acuity Teams Need Before the Room Gets Loud",
+    "focus": "preparing roles, language, and attention before escalation",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 783
+  },
+  {
     "date": "2026-09-24",
     "slug": "why-clear-requests-protect-clinical-teams-6",
     "category": "Clinical Communication",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 792
-  },
-  {
-    "date": "2026-06-28",
-    "slug": "when-resilience-language-starts-to-sound-like-blame",
-    "category": "Burnout and Resilience",
-    "title": "When Resilience Language Starts to Sound Like Blame",
-    "focus": "keeping support practical and systems-aware",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 702
   }
 ]
