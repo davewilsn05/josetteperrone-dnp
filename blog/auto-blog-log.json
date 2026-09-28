@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-28",
+    "slug": "why-students-need-practice-naming-what-they-notice-10",
+    "category": "Nursing Education",
+    "title": "Why Students Need Practice Naming What They Notice",
+    "focus": "building clinical judgment through observation language",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 772
+  },
+  {
     "date": "2026-09-27",
     "slug": "why-mentorship-needs-more-than-encouragement-20260927",
     "category": "Mentorship and Career Growth",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 753
-  },
-  {
-    "date": "2026-07-01",
-    "slug": "why-safety-follow-through-builds-trust",
-    "category": "Healthcare Worker Safety",
-    "title": "Why Safety Follow-Through Builds Trust",
-    "focus": "closing the loop after nurses report concerns",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 739
   }
 ]
