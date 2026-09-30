@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-09-30",
+    "slug": "why-advanced-practice-still-needs-nursing-roots-7",
+    "category": "Advanced Practice Nursing",
+    "title": "Why Advanced Practice Still Needs Nursing Roots",
+    "focus": "carrying bedside perspective into broader responsibility",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 825
+  },
+  {
     "date": "2026-09-29",
     "slug": "when-advocacy-begins-as-a-clarifying-question-8",
     "category": "Patient Advocacy",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 699
-  },
-  {
-    "date": "2026-07-03",
-    "slug": "the-teaching-value-of-slowing-down-the-first-decision",
-    "category": "Nursing Education",
-    "title": "The Teaching Value of Slowing Down the First Decision",
-    "focus": "helping students understand clinical priorities",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 691
   }
 ]
