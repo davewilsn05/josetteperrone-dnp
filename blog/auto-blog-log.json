@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-03",
+    "slug": "what-high-acuity-teams-need-before-the-room-gets-loud-11",
+    "category": "Emergency and Trauma Nursing",
+    "title": "What High-Acuity Teams Need Before the Room Gets Loud",
+    "focus": "preparing roles, language, and attention before escalation",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 725
+  },
+  {
     "date": "2026-10-02",
     "slug": "why-clear-requests-protect-clinical-teams-7",
     "category": "Clinical Communication",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 778
-  },
-  {
-    "date": "2026-07-06",
-    "slug": "how-nurse-leaders-can-notice-emotional-load",
-    "category": "Burnout and Resilience",
-    "title": "How Nurse Leaders Can Notice Emotional Load",
-    "focus": "reading burnout signals before disengagement",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 692
   }
 ]
