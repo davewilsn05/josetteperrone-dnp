@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-04",
+    "slug": "when-safety-concerns-sound-like-small-complaints-11",
+    "category": "Healthcare Worker Safety",
+    "title": "When Safety Concerns Sound Like Small Complaints",
+    "focus": "treating repeated friction as early safety data",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 762
+  },
+  {
     "date": "2026-10-03",
     "slug": "what-high-acuity-teams-need-before-the-room-gets-loud-11",
     "category": "Emergency and Trauma Nursing",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 741
-  },
-  {
-    "date": "2026-07-07",
-    "slug": "why-tone-changes-what-teams-hear",
-    "category": "Clinical Communication",
-    "title": "Why Tone Changes What Teams Hear",
-    "focus": "using calm language without softening urgent concerns",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 778
   }
 ]
