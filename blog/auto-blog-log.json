@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-05",
+    "slug": "why-mentorship-needs-more-than-encouragement-9",
+    "category": "Mentorship and Career Growth",
+    "title": "Why Mentorship Needs More Than Encouragement",
+    "focus": "turning support into specific professional growth",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 762
+  },
+  {
     "date": "2026-10-04",
     "slug": "when-safety-concerns-sound-like-small-complaints-11",
     "category": "Healthcare Worker Safety",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 722
-  },
-  {
-    "date": "2026-07-08",
-    "slug": "how-trauma-nursing-teaches-operational-awareness",
-    "category": "Emergency and Trauma Nursing",
-    "title": "How Trauma Nursing Teaches Operational Awareness",
-    "focus": "seeing the patient the room and the team at once",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 741
   }
 ]
