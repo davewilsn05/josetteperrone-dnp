@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-08",
+    "slug": "why-advanced-practice-still-needs-nursing-roots-20261008",
+    "category": "Advanced Practice Nursing",
+    "title": "Why Advanced Practice Still Needs Nursing Roots 20261008",
+    "focus": "carrying bedside perspective into broader responsibility",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 769
+  },
+  {
     "date": "2026-10-07",
     "slug": "when-advocacy-begins-as-a-clarifying-question-9",
     "category": "Patient Advocacy",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 693
-  },
-  {
-    "date": "2026-07-10",
-    "slug": "why-confidence-needs-structure-in-nursing-education",
-    "category": "Nursing Education",
-    "title": "Why Confidence Needs Structure in Nursing Education",
-    "focus": "supporting growth without false reassurance",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 681
   }
 ]
