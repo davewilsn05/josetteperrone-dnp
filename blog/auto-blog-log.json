@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-09",
+    "slug": "why-recovery-cannot-be-left-to-the-drive-home-20261009",
+    "category": "Burnout and Resilience",
+    "title": "Why Recovery Cannot Be Left to the Drive Home 20261009",
+    "focus": "making decompression part of the work system",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 655
+  },
+  {
     "date": "2026-10-08",
     "slug": "why-advanced-practice-still-needs-nursing-roots-20261008",
     "category": "Advanced Practice Nursing",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 669
-  },
-  {
-    "date": "2026-07-11",
-    "slug": "why-family-communication-is-part-of-advocacy",
-    "category": "Patient Advocacy",
-    "title": "Why Family Communication Is Part of Advocacy",
-    "focus": "helping families understand without overpromising",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 693
   }
 ]
