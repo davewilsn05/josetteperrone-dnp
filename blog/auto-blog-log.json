@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-11",
+    "slug": "what-high-acuity-teams-need-before-the-room-gets-loud-12",
+    "category": "Emergency and Trauma Nursing",
+    "title": "What High-Acuity Teams Need Before the Room Gets Loud",
+    "focus": "preparing roles, language, and attention before escalation",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 742
+  },
+  {
     "date": "2026-10-10",
     "slug": "why-clear-requests-protect-clinical-teams-20261010",
     "category": "Clinical Communication",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 665
-  },
-  {
-    "date": "2026-07-13",
-    "slug": "why-breaks-need-operational-protection",
-    "category": "Burnout and Resilience",
-    "title": "Why Breaks Need Operational Protection",
-    "focus": "turning recovery from permission into practice",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 729
   }
 ]
