@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-13",
+    "slug": "when-safety-concerns-sound-like-small-complaints-12",
+    "category": "Healthcare Worker Safety",
+    "title": "When Safety Concerns Sound Like Small Complaints",
+    "focus": "treating repeated friction as early safety data",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 724
+  },
+  {
     "date": "2026-10-11",
     "slug": "what-high-acuity-teams-need-before-the-room-gets-loud-12",
     "category": "Emergency and Trauma Nursing",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 651
-  },
-  {
-    "date": "2026-07-14",
-    "slug": "how-leaders-can-model-better-questions",
-    "category": "Clinical Communication",
-    "title": "How Leaders Can Model Better Questions",
-    "focus": "creating communication habits that invite useful information",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 665
   }
 ]
