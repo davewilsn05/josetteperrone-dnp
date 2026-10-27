@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-27",
+    "slug": "why-clear-requests-protect-clinical-teams-20261027",
+    "category": "Clinical Communication",
+    "title": "Why Clear Requests Protect Clinical Teams 20261027",
+    "focus": "making needs visible before confusion grows",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 721
+  },
+  {
     "date": "2026-10-26",
     "slug": "why-recovery-cannot-be-left-to-the-drive-home-20261026",
     "category": "Burnout and Resilience",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 817
-  },
-  {
-    "date": "2026-07-28",
-    "slug": "why-advanced-practice-still-needs-nursing-roots-20260728",
-    "category": "Advanced Practice Nursing",
-    "title": "Why Advanced Practice Still Needs Nursing Roots 20260728",
-    "focus": "carrying bedside perspective into broader responsibility",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 704
   }
 ]
