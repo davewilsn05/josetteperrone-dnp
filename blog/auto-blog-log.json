@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-10",
+    "slug": "why-advanced-practice-still-needs-nursing-roots-20261110",
+    "category": "Advanced Practice Nursing",
+    "title": "Why Advanced Practice Still Needs Nursing Roots 20261110",
+    "focus": "carrying bedside perspective into broader responsibility",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 722
+  },
+  {
     "date": "2026-11-09",
     "slug": "when-advocacy-begins-as-a-clarifying-question-20261109",
     "category": "Patient Advocacy",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 820
-  },
-  {
-    "date": "2026-08-11",
-    "slug": "why-students-need-practice-naming-what-they-notice-4",
-    "category": "Nursing Education",
-    "title": "Why Students Need Practice Naming What They Notice",
-    "focus": "building clinical judgment through observation language",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 740
   }
 ]
