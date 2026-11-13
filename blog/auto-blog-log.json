@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-13",
+    "slug": "what-high-acuity-teams-need-before-the-room-gets-loud-15",
+    "category": "Emergency and Trauma Nursing",
+    "title": "What High-Acuity Teams Need Before the Room Gets Loud",
+    "focus": "preparing roles, language, and attention before escalation",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 659
+  },
+  {
     "date": "2026-11-12",
     "slug": "why-clear-requests-protect-clinical-teams-20261112",
     "category": "Clinical Communication",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 714
-  },
-  {
-    "date": "2026-08-14",
-    "slug": "why-recovery-cannot-be-left-to-the-drive-home-3",
-    "category": "Burnout and Resilience",
-    "title": "Why Recovery Cannot Be Left to the Drive Home",
-    "focus": "making decompression part of the work system",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 718
   }
 ]
