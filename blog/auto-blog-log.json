@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-19",
+    "slug": "why-recovery-cannot-be-left-to-the-drive-home-10",
+    "category": "Burnout and Resilience",
+    "title": "Why Recovery Cannot Be Left to the Drive Home",
+    "focus": "making decompression part of the work system",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 801
+  },
+  {
     "date": "2026-11-18",
     "slug": "why-advanced-practice-still-needs-nursing-roots-20261118",
     "category": "Advanced Practice Nursing",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 710
-  },
-  {
-    "date": "2026-08-20",
-    "slug": "when-advocacy-begins-as-a-clarifying-question-5",
-    "category": "Patient Advocacy",
-    "title": "When Advocacy Begins as a Clarifying Question",
-    "focus": "using questions to make patient needs visible",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 667
   }
 ]
