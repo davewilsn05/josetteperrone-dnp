@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-11-22",
+    "slug": "when-safety-concerns-sound-like-small-complaints-17",
+    "category": "Healthcare Worker Safety",
+    "title": "When Safety Concerns Sound Like Small Complaints",
+    "focus": "treating repeated friction as early safety data",
+    "source": "auto-blog",
+    "model": "gpt-4.1-mini",
+    "robots": "noindex, follow, max-image-preview:large",
+    "wordCount": 785
+  },
+  {
     "date": "2026-11-21",
     "slug": "what-high-acuity-teams-need-before-the-room-gets-loud-16",
     "category": "Emergency and Trauma Nursing",
@@ -977,16 +988,5 @@
     "model": "gpt-4.1-mini",
     "robots": "noindex, follow, max-image-preview:large",
     "wordCount": 819
-  },
-  {
-    "date": "2026-08-23",
-    "slug": "why-clear-requests-protect-clinical-teams-20260823",
-    "category": "Clinical Communication",
-    "title": "Why Clear Requests Protect Clinical Teams 20260823",
-    "focus": "making needs visible before confusion grows",
-    "source": "auto-blog",
-    "model": "gpt-4.1-mini",
-    "robots": "noindex, follow, max-image-preview:large",
-    "wordCount": 766
   }
 ]
